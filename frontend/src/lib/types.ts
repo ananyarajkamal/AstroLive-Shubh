@@ -11,8 +11,9 @@ export interface BirthDetailsInput {
 }
 
 export interface VehicleDetailsInput {
-  vehicleType: VehicleType;
+  vehicleType: VehicleType | '';
   vehicleModel: string;
+  preferredColours?: string;
 }
 
 export interface DeliveryWindowInput {

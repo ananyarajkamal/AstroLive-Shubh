@@ -1,21 +1,192 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Hind:wght@400;500;600;700&family=Mukta:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --navy-cosmic: #071A33;
+  --navy-midnight: #0D2747;
+  --gold-antique: #C6A15B;
+  --gold-highlight: #E2C982;
+  --ivory-warm: #F4EFE3;
+  --text-dark: #241F1B;
+  --text-muted: #6B7280;
+  --surface-soft: #FAF8F3;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background-color: #F7F4ED;
-  color: #1A2332;
+  font-family: 'Inter', 'Poppins', -apple-system, sans-serif;
+  background-color: var(--navy-cosmic);
+  color: var(--ivory-warm);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-@keyframes spin {
+/* Modern Devanagari Typography Utilities */
+.font-hindi-title {
+  font-family: 'Poppins', 'Hind', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 1.3;
+}
+
+.font-hindi-body {
+  font-family: 'Poppins', 'Mukta', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.font-hindi-button {
+  font-family: 'Hind', 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Animations */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 0.95; transform: scale(1.15); }
+}
+
+@keyframes pulseGentle {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes patraLightSweep {
+  0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
+  50% { opacity: 0.2; }
+  100% { transform: translateX(200%) rotate(25deg); opacity: 0; }
+}
+
+.celestial-orbit-slow {
+  animation: spinSlow 110s linear infinite;
+}
+
+.celestial-pulse-gentle {
+  animation: pulseGentle 4s ease-in-out infinite;
+}
+
+.celestial-twinkle-1 {
+  animation: starTwinkle 3.2s ease-in-out infinite;
+}
+
+.celestial-twinkle-2 {
+  animation: starTwinkle 4.8s ease-in-out infinite 1.5s;
+}
+
+/* Module Card Hover Effects (Warm Ivory & Deep Espresso Editorial) */
+.module-card-cosmic {
+  background-color: #FAF8F3;
+  border: 1px solid #D8D0C4;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  position: relative;
+}
+
+.module-card-cosmic:hover {
+  transform: translateY(-4px);
+  border-color: #C6A15B;
+  box-shadow: 0 14px 36px -10px rgba(7, 26, 51, 0.12);
+}
+
+.module-card-cosmic .card-image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.module-card-cosmic .card-image-wrapper img {
+  transition: transform 400ms ease;
+}
+
+.module-card-cosmic:hover .card-image-wrapper img {
+  transform: scale(1.03);
+}
+
+/* Navigation Links */
+.nav-link-cosmic {
+  color: #F4EFE3;
+  position: relative;
+  transition: color 200ms ease;
+}
+
+.nav-link-cosmic::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: #C6A15B;
+  transition: width 250ms ease;
+}
+
+.nav-link-cosmic:hover {
+  color: #C6A15B;
+}
+
+.nav-link-cosmic:hover::after {
+  width: 100%;
+}
+
+/* Language Toggle Styling */
+.lang-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 3px;
+  transition: color 200ms ease, background-color 200ms ease;
+}
+
+.lang-toggle-btn:hover {
+  color: #C6A15B !important;
+}
+
+/* Patra certificate sweep animation */
+.patra-sweep-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.patra-sweep-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, rgba(226, 201, 130, 0.2), transparent);
+  animation: patraLightSweep 7s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .celestial-orbit-slow,
+  .celestial-pulse-gentle,
+  .celestial-twinkle-1,
+  .celestial-twinkle-2,
+  .patra-sweep-container::after {
+    animation: none !important;
+  }
+  .module-card-cosmic:hover {
+    transform: none !important;
+  }
+  .module-card-cosmic:hover .card-image-wrapper img {
+    transform: none !important;
+  }
 }
 
 @media print {

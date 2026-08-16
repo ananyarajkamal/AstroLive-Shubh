@@ -1,8 +1,27 @@
 import React from 'react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
 import { BirthDetailsInput } from '../../lib/types';
 import { CITIES_FALLBACK } from '../../lib/mockData';
+import CitySearch, { CityResult } from '../CitySearch';
+import { useLanguage } from '../../context/LanguageContext';
+
+const NAVY = '#07152F';
+const IVORY = '#F5F1E8';
+const GOLD = '#C8A85B';
+const BORDER = '#D8D0C4';
+const MUTED = '#6B7280';
+const WHITE = '#FAF8F3';
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  border: `1px solid ${BORDER}`,
+  backgroundColor: IVORY,
+  color: NAVY,
+  fontSize: 14,
+  padding: '11px 14px',
+  borderRadius: 6,
+  outline: 'none',
+  fontFamily: 'Inter, sans-serif',
+};
 
 interface BirthDetailsFormProps {
   initialValues: BirthDetailsInput;
@@ -12,13 +31,14 @@ interface BirthDetailsFormProps {
 export function BirthDetailsForm({ initialValues, onSubmit }: BirthDetailsFormProps) {
   const [formData, setFormData] = React.useState<BirthDetailsInput>(initialValues);
   const [errors, setErrors] = React.useState<Record<string, string>>({});
+  const { t, lang } = useLanguage();
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
-    if (!formData.birthTime) newErrors.birthTime = 'Exact birth time is required';
-    if (!formData.birthCity.trim()) newErrors.birthCity = 'Birth city is required';
+    if (!formData.fullName.trim()) newErrors.fullName = lang === 'hi' ? 'पूरा नाम आवश्यक है' : 'Full name is required';
+    if (!formData.dateOfBirth) newErrors.dateOfBirth = lang === 'hi' ? 'जन्म तिथि आवश्यक है' : 'Date of birth is required';
+    if (!formData.birthTime) newErrors.birthTime = lang === 'hi' ? 'जन्म समय आवश्यक है' : 'Exact birth time is required';
+    if (!formData.birthCity.trim()) newErrors.birthCity = lang === 'hi' ? 'जन्म स्थान आवश्यक है' : 'Birth city is required';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -32,74 +52,129 @@ export function BirthDetailsForm({ initialValues, onSubmit }: BirthDetailsFormPr
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div>
-        <h2 className="font-serif-luxury text-2xl text-[#0B132B] font-bold">Birth Details</h2>
-        <p className="text-xs text-[#526071] mt-1">
-          Your birth date, time, and location determine your lagna position and transit muhurat alignment.
+        <h2 style={{ fontFamily: "'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif", fontSize: 24, color: NAVY, fontWeight: 600, marginBottom: 4 }}>
+          {t.forms.step1Title}
+        </h2>
+        <p style={{ color: MUTED, fontSize: 13 }}>
+          {t.forms.step1Subtitle}
         </p>
       </div>
 
-      <div className="space-y-4">
-        <Input
-          label="Full Name"
-          placeholder="e.g. Aarav Sharma"
-          value={formData.fullName}
-          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-          error={errors.fullName}
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input
-            label="Date of Birth"
-            type="date"
-            value={formData.dateOfBirth}
-            onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
-            error={errors.dateOfBirth}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div>
+          <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 6 }}>
+            {t.forms.fullNameLabel.toUpperCase()}
+          </label>
+          <input
+            type="text"
+            placeholder={t.forms.fullNamePlaceholder}
+            value={formData.fullName}
+            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+            style={{
+              ...inputStyle,
+              borderColor: errors.fullName ? '#DC2626' : BORDER,
+            }}
           />
-          <Input
-            label="Exact Birth Time"
-            type="time"
-            value={formData.birthTime}
-            onChange={(e) => setFormData({ ...formData, birthTime: e.target.value })}
-            error={errors.birthTime}
-          />
+          {errors.fullName && <p style={{ fontSize: 11, color: '#DC2626', marginTop: 4 }}>{errors.fullName}</p>}
         </div>
 
-        <div className="space-y-2">
-          <Input
-            label="Birth City"
-            placeholder="e.g. Bengaluru, Mumbai, Delhi"
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div>
+            <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 6 }}>
+              {t.forms.dobLabel.toUpperCase()}
+            </label>
+            <input
+              type="date"
+              value={formData.dateOfBirth}
+              onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
+              style={{
+                ...inputStyle,
+                borderColor: errors.dateOfBirth ? '#DC2626' : BORDER,
+              }}
+            />
+            {errors.dateOfBirth && <p style={{ fontSize: 11, color: '#DC2626', marginTop: 4 }}>{errors.dateOfBirth}</p>}
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 6 }}>
+              {t.forms.timeLabel.toUpperCase()}
+            </label>
+            <input
+              type="time"
+              value={formData.birthTime}
+              onChange={(e) => setFormData({ ...formData, birthTime: e.target.value })}
+              style={{
+                ...inputStyle,
+                borderColor: errors.birthTime ? '#DC2626' : BORDER,
+              }}
+            />
+            {errors.birthTime && <p style={{ fontSize: 11, color: '#DC2626', marginTop: 4 }}>{errors.birthTime}</p>}
+          </div>
+        </div>
+
+        <div>
+          <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 6 }}>
+            {t.forms.cityLabel.toUpperCase()}
+          </label>
+          <CitySearch
             value={formData.birthCity}
-            onChange={(e) => setFormData({ ...formData, birthCity: e.target.value })}
-            error={errors.birthCity}
-            helperText="Select or type your birth city to determine precise coordinates."
+            onChange={(c: CityResult) => setFormData({ ...formData, birthCity: c.shortName || c.displayName, latitude: c.lat, longitude: c.lon })}
+            placeholder={t.forms.cityPlaceholder}
+            inputStyle={{
+              ...inputStyle,
+              borderColor: errors.birthCity ? '#DC2626' : BORDER,
+            }}
           />
+          {errors.birthCity && <p style={{ fontSize: 11, color: '#DC2626', marginTop: 4 }}>{errors.birthCity}</p>}
           
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            <span className="text-[11px] text-[#526071] self-center mr-1">Popular:</span>
-            {CITIES_FALLBACK.slice(0, 7).map((city) => (
-              <button
-                key={city}
-                type="button"
-                onClick={() => setFormData({ ...formData, birthCity: city })}
-                className={`px-2.5 py-1 rounded-md text-xs transition-all ${
-                  formData.birthCity === city
-                    ? 'bg-[#0B132B] text-[#FDFBF7] font-semibold'
-                    : 'bg-[#F4EFE6] text-[#526071] border border-[#EAE5DC] hover:border-[#B8860B] hover:text-[#0B132B]'
-                }`}
-              >
-                {city}
-              </button>
-            ))}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center', marginTop: 10 }}>
+            <span style={{ fontSize: 11, color: MUTED, fontWeight: 500, marginRight: 4 }}>{lang === 'hi' ? 'लोकप्रिय:' : 'Popular:'}</span>
+            {CITIES_FALLBACK.slice(0, 7).map((city) => {
+              const isSelected = formData.birthCity === city;
+              return (
+                <button
+                  key={city}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, birthCity: city })}
+                  style={{
+                    backgroundColor: isSelected ? NAVY : IVORY,
+                    color: isSelected ? WHITE : NAVY,
+                    border: `1px solid ${isSelected ? NAVY : BORDER}`,
+                    padding: '4px 10px',
+                    borderRadius: 4,
+                    fontSize: 12,
+                    fontWeight: isSelected ? 600 : 400,
+                    cursor: 'pointer',
+                    transition: 'all 150ms ease',
+                  }}
+                >
+                  {city}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      <div className="flex justify-end pt-4 border-t border-[#EAE5DC]">
-        <Button type="submit" variant="primary" size="md">
-          Continue to Vehicle Details →
-        </Button>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: 16, borderTop: `1px solid ${BORDER}` }}>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: NAVY,
+            color: IVORY,
+            border: 'none',
+            fontSize: 12,
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            padding: '12px 28px',
+            borderRadius: 4,
+            cursor: 'pointer',
+          }}
+        >
+          {t.forms.nextBtn}
+        </button>
       </div>
     </form>
   );

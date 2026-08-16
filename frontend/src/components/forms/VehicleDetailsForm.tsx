@@ -1,8 +1,26 @@
 import React from 'react';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
 import { VehicleDetailsInput, VehicleType } from '../../lib/types';
 import { Car, Zap, Shield, Crown, Bike } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
+
+const NAVY = '#07152F';
+const IVORY = '#F5F1E8';
+const GOLD = '#C8A85B';
+const BORDER = '#D8D0C4';
+const MUTED = '#6B7280';
+const WHITE = '#FAF8F3';
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  border: `1px solid ${BORDER}`,
+  backgroundColor: IVORY,
+  color: NAVY,
+  fontSize: 14,
+  padding: '11px 14px',
+  borderRadius: 6,
+  outline: 'none',
+  fontFamily: 'Inter, sans-serif',
+};
 
 interface VehicleDetailsFormProps {
   initialValues: VehicleDetailsInput;
@@ -10,23 +28,24 @@ interface VehicleDetailsFormProps {
   onBack: () => void;
 }
 
-const VEHICLE_TYPES: { type: VehicleType; label: string; icon: React.ReactNode; desc: string }[] = [
-  { type: 'SUV', label: 'SUV / Crossover', icon: <Shield className="w-5 h-5" />, desc: 'Commanding road presence & luxury' },
-  { type: 'Sedan', label: 'Sedan', icon: <Car className="w-5 h-5" />, desc: 'Executive elegance & smooth transit' },
-  { type: 'EV', label: 'Electric Vehicle (EV)', icon: <Zap className="w-5 h-5" />, desc: 'Modern technology & efficiency' },
-  { type: 'Luxury', label: 'Luxury Premium', icon: <Crown className="w-5 h-5" />, desc: 'Ultra-luxury flagship marque' },
-  { type: 'Two-Wheeler', label: 'Two-Wheeler / Bike', icon: <Bike className="w-5 h-5" />, desc: 'Agile personal transit' },
-  { type: 'Hatchback', label: 'Hatchback', icon: <Car className="w-5 h-5" />, desc: 'Compact urban efficiency' }
-];
-
 export function VehicleDetailsForm({ initialValues, onSubmit, onBack }: VehicleDetailsFormProps) {
   const [formData, setFormData] = React.useState<VehicleDetailsInput>(initialValues);
   const [error, setError] = React.useState<string>('');
+  const { t, lang } = useLanguage();
+
+  const VEHICLE_TYPES: { type: VehicleType; label: string; icon: React.ReactNode; desc: string }[] = [
+    { type: 'SUV', label: lang === 'hi' ? 'एसयूवी / क्रॉसओवर' : 'SUV / Crossover', icon: <Shield width={18} height={18} />, desc: lang === 'hi' ? 'शानदार रोड प्रेजेंस और लग्जरी' : 'Commanding road presence & luxury' },
+    { type: 'Sedan', label: lang === 'hi' ? 'सेडान' : 'Sedan', icon: <Car width={18} height={18} />, desc: lang === 'hi' ? 'एग्जीक्यूटिव लालित्य और आरामदायक ड्राइव' : 'Executive elegance & smooth transit' },
+    { type: 'EV', label: lang === 'hi' ? 'इलेक्ट्रिक वाहन (EV)' : 'Electric Vehicle (EV)', icon: <Zap width={18} height={18} />, desc: lang === 'hi' ? 'आधुनिक तकनीक और दक्षता' : 'Modern technology & efficiency' },
+    { type: 'Luxury', label: lang === 'hi' ? 'लक्जरी प्रीमियम' : 'Luxury Premium', icon: <Crown width={18} height={18} />, desc: lang === 'hi' ? 'अल्ट्रा-लक्जरी फ्लैगशिप कार' : 'Ultra-luxury flagship marque' },
+    { type: 'Two-Wheeler', label: lang === 'hi' ? 'दोपहिया / बाइक' : 'Two-Wheeler / Bike', icon: <Bike width={18} height={18} />, desc: lang === 'hi' ? 'सुगम व्यक्तिगत आवागमन' : 'Agile personal transit' },
+    { type: 'Hatchback', label: lang === 'hi' ? 'हैचबैक' : 'Hatchback', icon: <Car width={18} height={18} />, desc: lang === 'hi' ? 'शहरी सुगमता' : 'Compact urban efficiency' }
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.vehicleModel.trim()) {
-      setError('Please specify your vehicle make or model name.');
+      setError(lang === 'hi' ? 'कृपया अपने वाहन का नाम या मॉडल निर्दिष्ट करें।' : 'Please specify your vehicle make or model name.');
       return;
     }
     setError('');
@@ -34,20 +53,22 @@ export function VehicleDetailsForm({ initialValues, onSubmit, onBack }: VehicleD
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div>
-        <h2 className="font-serif-luxury text-2xl text-[#0B132B] font-bold">Vehicle Details</h2>
-        <p className="text-xs text-[#526071] mt-1">
-          Select your vehicle category and model to tailor numerology compatibility & color affinity rules.
+        <h2 style={{ fontFamily: "'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif", fontSize: 24, color: NAVY, fontWeight: 600, marginBottom: 4 }}>
+          {t.forms.step2Title}
+        </h2>
+        <p style={{ color: MUTED, fontSize: 13 }}>
+          {t.forms.step2Subtitle}
         </p>
       </div>
 
-      <div className="space-y-5">
-        <div className="space-y-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-[#0B132B]">
-            Vehicle Category
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div>
+          <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 10 }}>
+            {t.forms.vehicleTypeLabel.toUpperCase()}
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
             {VEHICLE_TYPES.map((item) => {
               const isSelected = formData.vehicleType === item.type;
               return (
@@ -55,40 +76,90 @@ export function VehicleDetailsForm({ initialValues, onSubmit, onBack }: VehicleD
                   key={item.type}
                   type="button"
                   onClick={() => setFormData({ ...formData, vehicleType: item.type })}
-                  className={`flex flex-col items-start p-4 rounded-xl text-left border transition-all ${
-                    isSelected
-                      ? 'bg-[#0B132B] border-[#0B132B] text-[#FDFBF7] shadow-md'
-                      : 'bg-[#FFFFFF] border-[#EAE5DC] text-[#1E242B] hover:border-[#B8860B]'
-                  }`}
+                  style={{
+                    backgroundColor: isSelected ? NAVY : WHITE,
+                    color: isSelected ? WHITE : NAVY,
+                    border: `1px solid ${isSelected ? NAVY : BORDER}`,
+                    borderRadius: 8,
+                    padding: 16,
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    transition: 'all 150ms ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                  }}
                 >
-                  <div className={`p-2 rounded-lg mb-2 ${isSelected ? 'bg-[#F4EFE6]/20 text-[#C5A059]' : 'bg-[#F4EFE6] text-[#526071]'}`}>
+                  <div style={{
+                    backgroundColor: isSelected ? 'rgba(200, 168, 91, 0.2)' : IVORY,
+                    color: isSelected ? GOLD : MUTED,
+                    padding: 8,
+                    borderRadius: 6,
+                    marginBottom: 10,
+                    display: 'inline-flex',
+                  }}>
                     {item.icon}
                   </div>
-                  <span className="text-sm font-bold tracking-wide">{item.label}</span>
-                  <span className={`text-[11px] mt-0.5 leading-tight ${isSelected ? 'text-slate-300' : 'text-[#526071]'}`}>{item.desc}</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>{item.label}</span>
+                  <span style={{ fontSize: 11, color: isSelected ? '#D1D5DB' : MUTED, lineHeight: 1.3 }}>{item.desc}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        <Input
-          label="Vehicle Make & Model Name"
-          placeholder="e.g. Tata Nexon EV Max, BMW X5, Mahindra XUV700"
-          value={formData.vehicleModel}
-          onChange={(e) => setFormData({ ...formData, vehicleModel: e.target.value })}
-          error={error}
-          helperText="Enter the full trim or commercial model name."
-        />
+        <div>
+          <label style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: NAVY, marginBottom: 6 }}>
+            {t.forms.vehicleModelLabel.toUpperCase()}
+          </label>
+          <input
+            type="text"
+            placeholder={t.forms.vehicleModelPlaceholder}
+            value={formData.vehicleModel}
+            onChange={(e) => setFormData({ ...formData, vehicleModel: e.target.value })}
+            style={{
+              ...inputStyle,
+              borderColor: error ? '#DC2626' : BORDER,
+            }}
+          />
+          {error && <p style={{ fontSize: 11, color: '#DC2626', marginTop: 4 }}>{error}</p>}
+        </div>
       </div>
 
-      <div className="flex justify-between items-center pt-4 border-t border-[#EAE5DC]">
-        <Button type="button" variant="outline" onClick={onBack}>
-          ← Back
-        </Button>
-        <Button type="submit" variant="primary">
-          Continue to Delivery Window →
-        </Button>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 16, borderTop: `1px solid ${BORDER}` }}>
+        <button
+          type="button"
+          onClick={onBack}
+          style={{
+            border: `1px solid ${BORDER}`,
+            color: NAVY,
+            backgroundColor: 'transparent',
+            fontSize: 12,
+            fontWeight: 600,
+            padding: '10px 20px',
+            borderRadius: 4,
+            cursor: 'pointer',
+          }}
+        >
+          {t.forms.backBtn}
+        </button>
+
+        <button
+          type="submit"
+          style={{
+            backgroundColor: NAVY,
+            color: IVORY,
+            border: 'none',
+            fontSize: 12,
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            padding: '12px 28px',
+            borderRadius: 4,
+            cursor: 'pointer',
+          }}
+        >
+          {t.forms.nextBtn}
+        </button>
       </div>
     </form>
   );
