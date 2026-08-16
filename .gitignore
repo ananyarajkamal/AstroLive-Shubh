@@ -1,0 +1,39 @@
+# Environments and Secrets
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend
+node_modules/
+.next/
+out/
+build/
+dist/
+.DS_Store
+*.pem
+
+# IDE & System
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db

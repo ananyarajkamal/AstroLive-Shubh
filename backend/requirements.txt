@@ -1,0 +1,16 @@
+# AstroLive Vahan Backend — Pinned Production Dependencies
+# Phase 2: FastAPI + Geoapify + timezonefinder + Supabase
+# Generated: 2026-08-16
+
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+pydantic-settings==2.3.4
+httpx==0.27.0
+timezonefinder==6.5.2
+python-dotenv==1.0.1
+supabase==2.5.3
+tzdata==2024.1
+pyswisseph==2.10.3.2
+
+
