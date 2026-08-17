@@ -86,8 +86,8 @@ AstroLive-Shubh/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/username/AstroLive-Vahan.git
-cd AstroLive-Vahan
+git clone https://github.com/ananyarajkamal/AstroLive-Shubh.git
+cd AstroLive-Shubh
 ```
 
 ### 2. Backend Setup

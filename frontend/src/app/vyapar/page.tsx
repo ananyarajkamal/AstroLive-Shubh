@@ -9,6 +9,7 @@ import SiteFooter from '../../components/SiteFooter';
 import CitySearch, { CityResult } from '../../components/CitySearch';
 import { VyaparIcon } from '../../components/ModuleIcons';
 import { useLanguage } from '../../context/LanguageContext';
+import { API_BASE_URL } from '../../lib/api';
 
 const PRIMARY_BG = '#F5F1E8';
 const SECONDARY_BG = '#ECE7DC';
@@ -110,7 +111,7 @@ export default function VyaparPage() {
     };
 
     try {
-      const res = await fetch('http://localhost:8000/api/v1/vyapar/compute', {
+      const res = await fetch(`${API_BASE_URL}/vyapar/compute`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

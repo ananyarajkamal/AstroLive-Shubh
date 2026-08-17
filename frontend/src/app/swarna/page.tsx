@@ -9,6 +9,7 @@ import SiteFooter from '../../components/SiteFooter';
 import CitySearch, { CityResult } from '../../components/CitySearch';
 import { SwarnaIcon } from '../../components/ModuleIcons';
 import { useLanguage } from '../../context/LanguageContext';
+import { API_BASE_URL } from '../../lib/api';
 
 const PRIMARY_BG = '#F5F1E8';
 const SECONDARY_BG = '#ECE7DC';
@@ -120,7 +121,7 @@ export default function SwarnaPage() {
     };
 
     try {
-      const res = await fetch('http://localhost:8000/api/v1/swarna/compute', {
+      const res = await fetch(`${API_BASE_URL}/swarna/compute`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
