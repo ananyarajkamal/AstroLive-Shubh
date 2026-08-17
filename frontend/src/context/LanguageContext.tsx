@@ -67,7 +67,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
       // Business & Numerology Terms
       'inauguration': 'व्यावसायिक उद्घाटन', 'brand_numerology': 'ब्रांड नाम अंक ज्योतिष', 'retail': 'रिटेल / दुकान', 'tech': 'टेक / आईटी फर्म', 'office': 'कॉरपोरेट कार्यालय',
+      'technology': 'प्रौद्योगिकी / टेक', 'startup': 'स्टार्टअप', 'service': 'पेशेवर सेवाएं',
       'Commercial Inauguration': 'व्यावसायिक उद्घाटन', 'Brand Name Numerology': 'ब्रांड नाम अंक ज्योतिष', 'Retail Store / Shop': 'रिटेल / दुकान', 'Tech / IT Firm': 'टेक / आईटी फर्म', 'Corporate Office': 'कॉरपोरेट कार्यालय',
+
 
       // Swarna & Gemstones
       'gold': 'स्वर्ण क्रय (सोना)', 'gemstone': 'रत्न धारण', 'Gold Acquisition': 'स्वर्ण क्रय (सोना)', 'Gemstone Recommendation': 'रत्न सिफारिश',
@@ -184,11 +186,24 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     // 2. Exact Sentence & Phrase Mappings
     const exactPhrases: Record<string, string> = {
       // Vyapar Business Types & Milestones (exact, title, upper, lower, snake)
+      'Technology': 'प्रौद्योगिकी / टेक (आईटी)',
+      'TECHNOLOGY': 'प्रौद्योगिकी / टेक (आईटी)',
+      'technology': 'प्रौद्योगिकी / टेक (आईटी)',
+      'Technology / SaaS': 'प्रौद्योगिकी / टेक (आईटी)',
+      'Startup': 'स्टार्टअप',
+      'STARTUP': 'स्टार्टअप',
+      'startup': 'स्टार्टअप',
+      'Service': 'पेशेवर सेवाएं',
+      'SERVICE': 'पेशेवर सेवाएं',
+      'service': 'पेशेवर सेवाएं',
+      'Professional Service': 'पेशेवर सेवाएं',
       'Retail': 'खुदरा दुकान (रिटेल)',
-
       'RETAIL': 'खुदरा दुकान (रिटेल)',
       'retail': 'खुदरा दुकान (रिटेल)',
       'Retail Shop': 'खुदरा दुकान (रिटेल)',
+      'Retail Store': 'खुदरा दुकान (रिटेल)',
+      'Restaurant / Food': 'रेस्तरां / खाद्य व्यवसाय',
+
       'Ecommerce': 'ई-कॉमर्स / डिजिटल व्यापार',
       'ECOMMERCE': 'ई-कॉमर्स / डिजिटल व्यापार',
       'ecommerce': 'ई-कॉमर्स / डिजिटल व्यापार',
