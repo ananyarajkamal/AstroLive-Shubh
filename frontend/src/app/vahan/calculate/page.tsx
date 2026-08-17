@@ -115,7 +115,7 @@ function Step4Review({ data, onBack, onSubmit }: { data: VahanInputData; onBack:
           <div><strong>{lang === 'hi' ? 'जन्म स्थान:' : 'City:'}</strong> {translateValue(data.birthCity)}</div>
           <div><strong>{lang === 'hi' ? 'वाहन:' : 'Vehicle:'}</strong> {data.vehicleModel} ({translateValue(data.vehicleType || '')})</div>
           <div style={{ gridColumn: 'span 2' }}>
-            <strong>{lang === 'hi' ? 'डिलीवरी अवधि:' : 'Delivery Window:'}</strong> {data.deliveryStartDate} to {data.deliveryEndDate}
+            <strong>{lang === 'hi' ? 'डिलीवरी अवधि:' : 'Delivery Window:'}</strong> {data.deliveryStartDate} {lang === 'hi' ? 'से' : 'to'} {data.deliveryEndDate}
           </div>
         </div>
       </div>

@@ -227,8 +227,8 @@ export default function SwarnaPage() {
       <main style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 32px 96px' }}>
         {step === 'form' ? (
           <form onSubmit={handleCalculate} style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 40 }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
-              Select Guidance &amp; Birth Parameters
+            <h2 style={{ fontFamily: "'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 500, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
+              {lang === 'hi' ? 'मार्गदर्शन प्रकार एवं जन्म विवरण' : 'Select Guidance & Birth Parameters'}
             </h2>
 
             {errorMsg && (
