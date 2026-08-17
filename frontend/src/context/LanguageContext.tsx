@@ -183,7 +183,97 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     // 2. Exact Sentence & Phrase Mappings
     const exactPhrases: Record<string, string> = {
-      // Swarna Guidance Types & Purposes (exact, upper, title, snake_case)
+      // Vyapar Business Types & Milestones (exact, title, upper, lower, snake)
+      'Retail': 'खुदरा दुकान (रिटेल)',
+
+      'RETAIL': 'खुदरा दुकान (रिटेल)',
+      'retail': 'खुदरा दुकान (रिटेल)',
+      'Retail Shop': 'खुदरा दुकान (रिटेल)',
+      'Ecommerce': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'ECOMMERCE': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'ecommerce': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'E-Commerce': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'E-Commerce / Digital': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'Manufacturing': 'विनिर्माता / उद्योग',
+      'MANUFACTURING': 'विनिर्माता / उद्योग',
+      'manufacturing': 'विनिर्माता / उद्योग',
+      'Services': 'सेवाएं / परामर्श',
+      'SERVICES': 'सेवाएं / परामर्श',
+      'services': 'सेवाएं / परामर्श',
+      'Services / Consulting': 'सेवाएं / परामर्श',
+      'Restaurant': 'रेस्टोरेंट / कैफे',
+      'RESTAURANT': 'रेस्टोरेंट / कैफे',
+      'restaurant': 'रेस्टोरेंट / कैफे',
+      'Restaurant / Cafe': 'रेस्टोरेंट / कैफे',
+      'Real Estate': 'रियल एस्टेट / इंफ्रा',
+      'REAL ESTATE': 'रियल एस्टेट / इंफ्रा',
+      'real_estate': 'रियल एस्टेट / इंफ्रा',
+      'Real Estate / Infra': 'रियल एस्टेट / इंफ्रा',
+      'Finance': 'वित्त / प्रौद्योगिकी',
+      'FINANCE': 'वित्त / प्रौद्योगिकी',
+      'finance': 'वित्त / प्रौद्योगिकी',
+      'Finance / Tech': 'वित्त / प्रौद्योगिकी',
+      'Tech': 'प्रौद्योगिकी (टेक / आईटी)',
+      'TECH': 'प्रौद्योगिकी (टेक / आईटी)',
+      'tech': 'प्रौद्योगिकी (टेक / आईटी)',
+      'Company Incorporation & Legal Registration': 'कंपनी निगमन एवं कानूनी पंजीकरण',
+      'Business Grand Launch': 'व्यापारिक भव्य शुभारंभ',
+      'Shop & Showroom Opening': 'दुकान एवं शोरूम का उद्घाटन',
+      'New Office Opening & Puja': 'नए कार्यालय का उद्घाटन एवं पूजा',
+      'Commercial Ribbon Cutting Ceremony': 'व्यापारिक फीता कटाई समारोह',
+      'Key Product Launch': 'प्रमुख उत्पाद का शुभारंभ',
+      'Incorporation': 'कंपनी निगमन',
+      'INCORPORATION': 'कंपनी निगमन',
+      'incorporation': 'कंपनी निगमन',
+      'Launch': 'व्यापारिक शुभारंभ',
+      'LAUNCH': 'व्यापारिक शुभारंभ',
+      'launch': 'व्यापारिक शुभारंभ',
+      'Shop Opening': 'दुकान उद्घाटन',
+      'shop_opening': 'दुकान उद्घाटन',
+      'Office Opening': 'कार्यालय उद्घाटन',
+      'office_opening': 'कार्यालय उद्घाटन',
+      'Ribbon Cutting': 'फीता कटाई समारोह',
+      'ribbon_cutting': 'फीता कटाई समारोह',
+      'Product Launch': 'उत्पाद शुभारंभ',
+      'product_launch': 'उत्पाद शुभारंभ',
+      'Inauguration': 'व्यापारिक उद्घाटन',
+      'inauguration': 'व्यापारिक उद्घाटन',
+
+      // Griha Property Types & Activities
+      'Home': 'घर / विला',
+      'HOME': 'घर / विला',
+      'home': 'घर / विला',
+      'Home / Villa': 'घर / विला',
+      'Plot': 'भूखंड / भूमि',
+      'PLOT': 'भूखंड / भूमि',
+      'plot': 'भूखंड / भूमि',
+      'Plot / Land': 'भूखंड / भूमि',
+      'Apartment': 'अपार्टमेंट / फ्लैट',
+      'APARTMENT': 'अपार्टमेंट / फ्लैट',
+      'apartment': 'अपार्टमेंट / फ्लैट',
+      'Apartment / Flat': 'अपार्टमेंट / फ्लैट',
+      'Commercial': 'व्यावसायिक संपत्ति',
+      'COMMERCIAL': 'व्यावसायिक संपत्ति',
+      'commercial': 'व्यावसायिक संपत्ति',
+      'Commercial Office': 'व्यावसायिक कार्यालय',
+      'Bhoomi Pujan Foundation Laying': 'भूमि पूजन एवं नीव निर्माण',
+      'Bhoomi Pujan': 'भूमि पूजन एवं नीव निर्माण',
+      'bhoomi_pujan': 'भूमि पूजन एवं नीव निर्माण',
+      'Griha Pravesh Housewarming': 'गृह प्रवेश एवं शांति पूजन',
+      'Griha Pravesh': 'गृह प्रवेश एवं शांति पूजन',
+      'griha_pravesh': 'गृह प्रवेश एवं शांति पूजन',
+      'Property Registration & Purchase': 'संपत्ति पंजीकरण एवं क्रय',
+      'Purchase': 'संपत्ति पंजीकरण एवं क्रय',
+      'PURCHASE': 'संपत्ति पंजीकरण एवं क्रय',
+      'purchase': 'संपत्ति पंजीकरण एवं क्रय',
+      'Key Handover & Property Entry': 'चाबी हस्तांतरण एवं गृह प्रवेश',
+      'Key Handover': 'चाबी हस्तांतरण एवं गृह प्रवेश',
+      'handover': 'चाबी हस्तांतरण एवं गृह प्रवेश',
+      'Pillar & Foundation Work': 'स्तंभ एवं नीव निर्माण कार्य',
+      'Foundation': 'स्तंभ एवं नीव निर्माण कार्य',
+      'foundation': 'स्तंभ एवं नीव निर्माण कार्य',
+
+      // Swarna Guidance Types & Purposes
       'Gold Purchase': 'स्वर्ण क्रय',
       'GOLD PURCHASE': 'स्वर्ण क्रय',
       'gold_purchase': 'स्वर्ण क्रय',
@@ -198,70 +288,30 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'personal': 'व्यक्तिगत क्रय',
       'Gift': 'उपहार क्रय',
       'GIFT': 'उपहार क्रय',
-      'gift': 'उपहार क्रय',
-      'Auspicious': 'शुभ / मांगलिक क्रय',
       'AUSPICIOUS': 'शुभ / मांगलिक क्रय',
       'auspicious': 'शुभ / मांगलिक क्रय',
+
+      'Investment': 'निवेश (सोना)',
+      'INVESTMENT': 'निवेश (सोना)',
+      'investment': 'निवेश (सोना)',
       'Personal Jewellery': 'व्यक्तिगत आभूषण क्रय',
       'Marriage / Gift': 'विवाह / उपहार हेतु क्रय',
       'Investment / Bullion': 'निवेश / बुलियन (सोना)',
 
-      // Swarna Gemstones
-      'Ruby (Manik)': 'माणिक्य (रुबी)',
-      'Ruby': 'माणिक्य',
-      'Pearl (Moti)': 'मोती (पर्ल)',
-      'Pearl': 'मोती',
-      'Red Coral (Moonga)': 'मूंगा (रेड कोरल)',
-      'Red Coral': 'मूंगा',
-      'Emerald (Panna)': 'पन्ना (एमरल्ड)',
-      'Emerald': 'पन्ना',
-      'Yellow Sapphire (Pukhraj)': 'पुखराज (येलो नीलम)',
-      'Yellow Sapphire': 'पुखराज',
-      'Diamond (Heera)': 'हीरा (डायमंड)',
-      'Diamond': 'हीरा',
-      'Blue Sapphire (Neelam)': 'नीलम (ब्लू नीलम)',
-      'Blue Sapphire': 'नीलम',
-      'Hessonite (Gomed)': 'गोमेद (हेसोनाइट)',
-      'Hessonite': 'गोमेद',
-      'Cat Eye (Lehsuniya)': 'लहसुनिया (कैट्स आई)',
-      'Cat Eye': 'लहसुनिया',
+      // Vahan Vehicle Types
+      'SUV': 'एसयूवी / क्रॉसओवर',
+      'suv': 'एसयूवी / क्रॉसओवर',
+      'Sedan': 'सेडान',
+      'sedan': 'सेडान',
+      'Luxury': 'लक्जरी प्रीमियम',
+      'luxury': 'लक्जरी प्रीमियम',
+      'Hatchback': 'हैचबैक',
+      'hatchback': 'हैचबैक',
+      'Bike': 'दोपहिया / बाइक',
+      'bike': 'दोपहिया / बाइक',
+      'EV': 'इलेक्ट्रिक वाहन (EV)',
+      'ev': 'इलेक्ट्रिक वाहन (EV)',
 
-      // Griha Property Types & Activities
-      'Home / Villa': 'घर / विला',
-      'Plot / Land': 'भूखंड / भूमि',
-      'Apartment / Flat': 'अपार्टमेंट / फ्लैट',
-      'Commercial Office': 'व्यावसायिक कार्यालय',
-      'Bhoomi Pujan Foundation Laying': 'भूमि पूजन एवं नीव निर्माण',
-      'Bhoomi Pujan': 'भूमि पूजन',
-      'Griha Pravesh Housewarming': 'गृह प्रवेश एवं शांति पूजन',
-      'Griha Pravesh': 'गृह प्रवेश',
-      'Property Registration & Purchase': 'संपत्ति पंजीकरण एवं क्रय',
-      'Key Handover & Property Entry': 'चाबी हस्तांतरण एवं गृह प्रवेश',
-      'Key Handover': 'चाबी हस्तांतरण',
-      'Pillar & Foundation Work': 'स्तंभ एवं नीव निर्माण कार्य',
-      'Pillar & Foundation': 'स्तंभ एवं नीव निर्माण',
-
-      // Vyapar Business Types & Milestones
-      'Retail Shop': 'खुदरा दुकान (रिटेल)',
-      'E-Commerce / Digital': 'ई-कॉमर्स / डिजिटल व्यापार',
-      'Ecommerce / Digital': 'ई-कॉमर्स / डिजिटल व्यापार',
-      'Manufacturing': 'विनिर्माता / उद्योग',
-      'Services / Consulting': 'सेवाएं / परामर्श',
-      'Restaurant / Cafe': 'रेस्टोरेंट / कैफे',
-      'Real Estate / Infra': 'रियल एस्टेट / इंफ्रास्ट्रक्चर',
-      'Finance / Tech': 'वित्त / प्रौद्योगिकी',
-      'Company Incorporation & Legal Registration': 'कंपनी निगमन एवं कानूनी पंजीकरण',
-      'Business Grand Launch': 'व्यापारिक भव्य शुभारंभ',
-      'Shop & Showroom Opening': 'दुकान एवं शोरूम का उद्घाटन',
-      'New Office Opening & Puja': 'नए कार्यालय का उद्घाटन एवं पूजा',
-      'Commercial Ribbon Cutting Ceremony': 'व्यावसायिक फीता कटाई समारोह',
-      'Key Product Launch': 'प्रमुख उत्पाद का शुभारंभ',
-      'Incorporation': 'कंपनी निगमन',
-      'Launch': 'व्यापारिक शुभारंभ',
-      'Shop Opening': 'दुकान उद्घाटन',
-      'Office Opening': 'कार्यालय उद्घाटन',
-      'Ribbon Cutting': 'फीता कटाई समारोह',
-      'Product Launch': 'उत्पाद शुभारंभ',
 
       // Swarna Purpose Titles (from backend PURPOSES dict)
       'Personal Gold & Wealth Purchase': '\u0935\u094d\u092f\u0915\u094d\u0924\u093f\u0917\u0924 \u0938\u094d\u0935\u0930\u094d\u0923 \u090f\u0935\u0902 \u0938\u0902\u092a\u0924\u094d\u0924\u093f \u0915\u094d\u0930\u092f',
@@ -497,6 +547,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return v;
       }
     }
+    for (const [k, v] of Object.entries(wordMappings)) {
+      if (k.replace(/_/g, ' ').replace(/\s+/g, ' ').toLowerCase() === normVal) {
+        return v;
+      }
+    }
 
     // 3. Dynamic Rationale & Recommendation Pattern Matching
     if (val.startsWith("Brand name '") && val.includes("yields Chaldean compound value ")) {
@@ -594,16 +649,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
 
     // 4. Fallback Word-by-Word Replacement
-
     let result = val;
     Object.keys(wordMappings).forEach((key) => {
-      if (result.includes(key)) {
-        const regex = new RegExp(`\\b${key}\\b`, 'g');
+      if (result.toLowerCase().includes(key.toLowerCase())) {
+        const regex = new RegExp(`\\b${key}\\b`, 'gi');
         result = result.replace(regex, wordMappings[key]);
       }
     });
 
     return result;
+
   };
 
   const dictionary = translations[lang];
