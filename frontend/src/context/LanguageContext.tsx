@@ -197,12 +197,39 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Business incorporation & launch timing aligned with Mercury & Jupiter Hora.': 'बुध और गुरु होरा के साथ संरेखित व्यावसायिक स्थापना और उद्घाटन मुहूर्त।',
       'Highly Auspicious Business Launch Window': 'अत्यंत शुभ व्यावसायिक शुभारंभ मुहूर्त',
       'Auspicious Brand Destiny Compound': 'शुभ ब्रांड भाग्य यौगिक अंक',
+      'All calculated commercial milestone windows are strictly bounded within your requested date range.': 'सभी परिकलित व्यावसायिक मुहूर्त आपकी अनुरोधित तिथि सीमा के भीतर ही सीमित हैं।',
+      'Astrological timings provide auspicious timing windows only and do not constitute financial guarantees.': 'ज्योतिषीय समय केवल शुभ मुहूर्त का मार्गदर्शन प्रदान करता है और यह कोई वित्तीय गारंटी नहीं है।',
+      'Calculated deterministically using Swiss Ephemeris sidereal Lahiri Ayanamsa.': 'गणना स्विस्स एफिमेरिस निरयन लाहिड़ी अयनांश द्वारा सटीक रूप से की गई है।',
 
       // Swarna & Pushya Alignment Sentences
       'Pushya Nakshatra & Dhanteras alignment for gold purchase bringing eternal Lakshmi prosperity.': 'पुष्य नक्षत्र और धनतेरस का शुभ योग जो अक्षय लक्ष्मी समृद्धि लाता है।',
       'Birth Moon sign gemstone compatibility evaluated for planetary strength and health.': 'ग्रह बल और स्वास्थ्य के लिए जन्म राशि के अनुसार रत्न अनुकूलता विश्लेषण।',
       'Pushya Nakshatra Gold Buying Window': 'पुष्य नक्षत्र स्वर्ण क्रय शुभ मुहूर्त',
       'Optimal Birth Gemstone Alignment': 'उत्कृष्ट जन्म रत्न अनुकूलता',
+      'All calculated timing windows are strictly bounded within your requested date range.': 'सभी परिकलित समय विंडोज आपकी अनुरोधित तिथि सीमा के भीतर सीमित हैं।',
+      'Astrological calculations use Swiss Ephemeris sidereal Lahiri Ayanamsa.': 'ज्योतिषीय गणना स्विस्स एफिमेरिस निरयन लाहिड़ी अयनांश पर आधारित है।',
+      'Traditional gold purchases during Pushya Nakshatra and Dhanteras are considered highly auspicious.': 'पुष्य नक्षत्र और धनतेरस के दौरान पारंपरिक स्वर्ण क्रय अत्यंत शुभ माना जाता है।',
+
+      // Gemstone Traditional Associations & Cautions
+      'Traditional association with vital energy, leadership, and executive authority.': 'पारंपरिक रूप से प्राण ऊर्जा, नेतृत्व और प्रशासनिक अधिकार का प्रतीक।',
+      'Wear on ring finger of right hand. Avoid wearing alongside Blue Sapphire or Diamond.': 'दाहिने हाथ की अनामिका उंगली में धारण करें। नीलम या हीरे के साथ पहनने से बचें।',
+      'Traditional association with emotional peace, mental tranquility, and intuition.': 'पारंपरिक रूप से मानसिक शांति, भावनात्मक संतुलन और अंतर्ज्ञान का प्रतीक।',
+      'Wear on little finger of right hand.': 'दाहिने हाथ की कनिष्ठिका उंगली में धारण करें।',
+      'Traditional association with courage, physical stamina, and ambition.': 'पारंपरिक रूप से साहस, शारीरिक ऊर्जा और उच्च आकांक्षा का प्रतीक।',
+      'Wear on ring finger.': 'अनामिका उंगली में धारण करें।',
+      'Traditional association with commercial intellect, speech, and mathematical acumen.': 'पारंपरिक रूप से व्यावसायिक बुद्धि, वाकपटुता और गणितीय क्षमता का प्रतीक।',
+      'Traditional association with divine wisdom, wealth retention, and higher learning.': 'पारंपरिक रूप से ईश्वरीय ज्ञान, संपत्ति संचय और उच्च शिक्षा का प्रतीक।',
+      'Wear on index finger of right hand.': 'दाहिने हाथ की तर्जनी उंगली में धारण करें।',
+      'Traditional association with luxury, aesthetic refine, and vehicle comfort.': 'पारंपरिक रूप से वैभव, सौंदर्य, भौतिक सुख एवं वाहन आराम का प्रतीक।',
+      'Wear on middle finger of right hand.': 'दाहिने हाथ की मध्यमा उंगली में धारण करें।',
+      'Traditional association with discipline, long-term endurance, and structural focus.': 'पारंपरिक रूप से अनुशासन, दीर्घकालिक सहनशीलता और स्थायित्व का प्रतीक।',
+      'Requires prior 3-day trial period under pillow as per traditional guidance.': 'पारंपरिक परंपरा के अनुसार धारण करने से पूर्व ३ दिन तक तकिये के नीचे रखकर परीक्षण आवश्यक है।',
+      'Traditional association with sudden insights and technical mastery.': 'पारंपरिक रूप से आकस्मिक अंतर्दृष्टि और तकनीकी दक्षता का प्रतीक।',
+      'Traditional association with spiritual intuition and protection.': 'पारंपरिक रूप से आध्यात्मिक अंतर्ज्ञान और सुरक्षा का प्रतीक।',
+      'Wear on ring or middle finger.': 'अनामिका या मध्यमा उंगली में धारण करें।',
+      'Highly Compatible': 'अत्यंत अनुकूल',
+      'Favorable (With Consultation)': 'अनुशंसित (परामर्श के साथ)',
+      'Rahu Kaal clear, opening auspicious Amrit & Abhijit Muhurat alignment.': 'राहु काल के प्रभाव से मुक्त, अमृत एवं अभिजित मुहूर्त योग।',
 
       // General Statuses & Categories
       'Highly Auspicious': 'अत्यंत शुभ मुहूर्त',
@@ -220,14 +247,36 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
 
     // 3. Dynamic Rationale & Recommendation Pattern Matching
+    if (val.startsWith("Brand name '") && val.includes("yields Chaldean compound value ")) {
+      const match = val.match(/Brand name '(.+)' yields Chaldean compound value (\d+) \(destiny single digit (\d+), governed by (.+)\)\. Aligns harmoniously with founder driver number (\d+)\./);
+      if (match) {
+        const brand = match[1];
+        const compound = match[2];
+        const single = match[3];
+        const planetTr = wordMappings[match[4]] || match[4];
+        const driver = match[5];
+        return `ब्रांड नाम '${brand}' का चाल्डियन यौगिक अंक ${compound} (भाग्य एकल अंक ${single}, स्वामी ग्रह ${planetTr}) है। यह संस्थापक के चालक अंक ${driver} के साथ अनुकूल रूप से संरेखित है।`;
+      }
+    }
+
+    if (val.startsWith("Harmonized with birth Nakshatra (") && val.includes(") during pristine morning Kaal.")) {
+      const match = val.match(/Harmonized with birth Nakshatra \((.+)\) during pristine morning Kaal\./);
+      if (match) {
+        const nakTr = wordMappings[match[1]] || match[1];
+        return `जन्म नक्षत्र (${nakTr}) से संरेखित एवं प्रभात काल में शुभ मुहूर्त।`;
+      }
+    }
+
     if (val.startsWith('Position the main entrance threshold cleanly facing ')) {
       const dirRaw = val.replace('Position the main entrance threshold cleanly facing ', '').replace('.', '').trim();
       const dirTr = wordMappings[dirRaw] || wordMappings[dirRaw.toLowerCase()] || dirRaw;
       return `${dirTr} दिशा की ओर मुख्य प्रवेश द्वार की देहरी को स्वच्छ एवं सुसज्जित रखें।`;
     }
+
     if (val.startsWith('For major structural modifications or ') && val.endsWith(' consult a qualified Vastu architect.')) {
       return 'किसी भी बड़े ढांचागत बदलाव या नींव निर्माण कार्य हेतु योग्य वास्तु विशेषज्ञ से परामर्श लें।';
     }
+
     if (val.startsWith('Auspicious Shubh Muhurat window on ')) {
       const match = val.match(/Auspicious Shubh Muhurat window on (\w+) aligned with (.+) Nakshatra\./);
       if (match) {
@@ -236,6 +285,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return `${dayTr} को ${nakTr} नक्षत्र से संरेखित शुभ मुहूर्त का समय।`;
       }
     }
+
     if (val.startsWith('Commercial Shubh Hora & Mercury transit window on ')) {
       const match = val.match(/Commercial Shubh Hora & Mercury transit window on (\w+) aligned with (.+) Nakshatra\./);
       if (match) {
@@ -244,6 +294,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return `${dayTr} को ${nakTr} नक्षत्र से संरेखित व्यावसायिक शुभ होरा एवं बुध गोचर का समय।`;
       }
     }
+
     if (val.startsWith('Auspicious Sun & Jupiter Gold Hora on ')) {
       const match = val.match(/Auspicious Sun & Jupiter Gold Hora on (\w+) aligned with (.+) Nakshatra\./);
       if (match) {
@@ -251,6 +302,18 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         const nakTr = wordMappings[match[2]] || match[2];
         return `${dayTr} को ${nakTr} नक्षत्र से संरेखित सूर्य एवं गुरु स्वर्ण होरा का शुभ समय।`;
       }
+    }
+
+    if (val.includes('strictly bounded within your requested date range')) {
+      return 'सभी परिकलित शुभ मुहूर्त समय सीमाएँ आपकी अनुरोधित तिथियों के भीतर ही सीमित हैं।';
+    }
+
+    if (val.includes('Swiss Ephemeris sidereal Lahiri Ayanamsa') || val.includes('Lahiri Ayanamsa')) {
+      return 'ज्योतिषीय समय की गणना स्विस्स एफिमेरिस निरयन लाहिड़ी अयनांश द्वारा सटीक रूप से की गई है।';
+    }
+
+    if (val.startsWith('DISCLAIMER: All guidance provided by AstroLive')) {
+      return 'अस्वीकरण: एस्ट्रोलाइव शुभ द्वारा प्रदान किया गया समस्त मार्गदर्शन शुद्ध रूप से पारंपरिक भारतीय ज्योतिषीय सिद्धांतों पर आधारित है। यह सलाह चिकित्सकीय, वित्तीय या निवेश गारंटी का विकल्प नहीं है।';
     }
 
     // 4. Fallback Word-by-Word Replacement
