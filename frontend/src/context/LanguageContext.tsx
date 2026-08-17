@@ -191,12 +191,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Gemstone Activation & Acquisition': '\u0930\u0924\u094d\u0928 \u0927\u093e\u0930\u0923 \u090f\u0935\u0902 \u092a\u0942\u091c\u0928 \u092e\u0941\u0939\u0942\u0930\u094d\u0924',
       'Gold Acquisition': '\u0938\u094d\u0935\u0930\u094d\u0923 \u0915\u094d\u0930\u092f',
 
-      // Swarna Gemstone Compatibility Categories
-      'Highly Compatible': '\u0905\u0924\u094d\u092f\u0902\u0924 \u0905\u0928\u0941\u0915\u0942\u0932',
-      'Compatible': '\u0905\u0928\u0941\u0915\u0942\u0932',
-      'Conditionally Compatible': '\u0936\u0930\u094d\u0924 \u0938\u0939\u093f\u0924 \u0905\u0928\u0941\u0915\u0942\u0932',
-      'Requires Expert Guidance': '\u0935\u093f\u0936\u0947\u0937\u091c\u094d\u091e \u092e\u093e\u0930\u094d\u0917\u0926\u0930\u094d\u0936\u0928 \u0906\u0935\u0936\u094d\u092f\u0915',
-      'Not Recommended': '\u0905\u0928\u0941\u0936\u0902\u0938\u093f\u0924 \u0928\u0939\u0940\u0902',
+      // Swarna Gemstone Compatibility Categories (note: 'Highly Compatible' already at line 394)
+      'Compatible': 'अनुकूल',
+      'Conditionally Compatible': 'शर्त सहित अनुकूल',
+      'Requires Expert Guidance': 'विशेषज्ञ मार्गदर्शन आवश्यक',
+      'Not Recommended': 'अनुशंसित नहीं',
 
       // Swarna Recommended Metals
       '24k Yellow Gold or Sterling Silver': '24 \u0915\u0948\u0930\u0947\u091f \u092a\u0940\u0932\u093e \u0938\u094b\u0928\u093e \u092f\u093e \u0938\u094d\u091f\u0930\u094d\u0932\u093f\u0902\u0917 \u091a\u093e\u0902\u0926\u0940',
@@ -219,12 +218,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Wear on ring finger of right hand as per traditional guidance.': '\u092a\u093e\u0930\u0902\u092a\u0930\u093f\u0915 \u092e\u093e\u0930\u094d\u0917\u0926\u0930\u094d\u0936\u0928 \u0905\u0928\u0941\u0938\u093e\u0930 \u0926\u093e\u0939\u093f\u0928\u0947 \u0939\u093e\u0925 \u0915\u0940 \u0905\u0928\u093e\u092e\u093f\u0915\u093e \u0909\u0902\u0917\u0932\u0940 \u092e\u0947\u0902 \u0927\u093e\u0930\u0923 \u0915\u0930\u0947\u0902\u0964',
       'Traditional association with vital energy, clarity, and executive leadership.': '\u091c\u0940\u0935\u0928 \u090a\u0930\u094d\u091c\u093e, \u0938\u094d\u092a\u0937\u094d\u091f\u0924\u093e \u0914\u0930 \u0915\u093e\u0930\u094d\u092f\u0915\u093e\u0930\u0940 \u0928\u0947\u0924\u0943\u0924\u094d\u0935 \u0915\u0947 \u0938\u093e\u0925 \u092a\u093e\u0930\u0902\u092a\u0930\u093f\u0915 \u0938\u0902\u092c\u0902\u0927\u0964',
 
-      // Swarna/Griha traditional notes (appear in importantNotes/traditionalNotes arrays)
-      'Traditional gold purchases during Pushya Nakshatra and Dhanteras are considered highly auspicious.': '\u092a\u0941\u0937\u094d\u092f \u0928\u0915\u094d\u0937\u0924\u094d\u0930 \u0914\u0930 \u0927\u0928\u0924\u0947\u0930\u0938 \u092e\u0947\u0902 \u092a\u093e\u0930\u0902\u092a\u0930\u093f\u0915 \u0938\u094d\u0935\u0930\u094d\u0923 \u0915\u094d\u0930\u092f \u0905\u0924\u094d\u092f\u0902\u0924 \u0936\u0941\u092d \u092e\u093e\u0928\u093e \u091c\u093e\u0924\u093e \u0939\u0948\u0964',
-      'Astrological calculations use Swiss Ephemeris sidereal Lahiri Ayanamsa.': '\u091c\u094d\u092f\u094b\u0924\u093f\u0937\u0940\u092f \u0917\u0923\u0928\u093e \u0938\u094d\u0935\u093f\u0938\u094d\u0938 \u090f\u092b\u093f\u092e\u0947\u0930\u093f\u0938 \u0928\u093f\u0930\u092f\u0928 \u0932\u093e\u0939\u093f\u0921\u093c\u0940 \u0905\u092f\u0928\u093e\u0902\u0936 \u0926\u094d\u0935\u093e\u0930\u093e \u0915\u0940 \u0917\u0908 \u0939\u0948\u0964',
-      'All calculated timing windows are strictly bounded within your requested date range.': '\u0938\u092d\u0940 \u092a\u0930\u093f\u0915\u0932\u093f\u0924 \u0936\u0941\u092d \u092e\u0941\u0939\u0942\u0930\u094d\u0924 \u0906\u092a\u0915\u0940 \u0905\u0928\u0941\u0930\u094b\u0927\u093f\u0924 \u0924\u093f\u0925\u093f \u0938\u0940\u092e\u093e \u0915\u0947 \u092d\u0940\u0924\u0930 \u0939\u0940 \u0938\u0940\u092e\u093f\u0924 \u0939\u0948\u0902\u0964',
-      'Astrological timings provide auspicious timing windows only and do not constitute financial guarantees.': '\u091c\u094d\u092f\u094b\u0924\u093f\u0937\u0940\u092f \u0938\u092e\u092f \u0915\u0947\u0935\u0932 \u0936\u0941\u092d \u0924\u093f\u0925\u093f \u0926\u0930\u094d\u0936\u093e\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u092f\u0947 \u0935\u093f\u0924\u094d\u0924\u0940\u092f \u0917\u093e\u0930\u0902\u091f\u0940 \u0928\u0939\u0940\u0902 \u0939\u0948\u0902\u0964',
-
+      // (Note: 'Traditional gold purchases...', 'Astrological calculations use Swiss...', 
+      //  'All calculated timing windows...' and 'Astrological timings provide...' already exist below)
 
       // Vahan Delivery Window Titles
       'Chandra Siddhi & Amrit Kaal Muhurat': 'चंद्र सिद्धि एवं अमृत काल मुहूर्त',

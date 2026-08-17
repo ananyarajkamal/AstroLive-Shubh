@@ -204,7 +204,7 @@ export default function PatraPage() {
                 {/* 5 recommendation rows */}
                 <div>
                   {[
-                    { l: lang === 'hi' ? '01  शुभ डिलीवरी मुहूर्त' : '01  Shubh Delivery Window', v: `${w.startDate} · ${w.startTime} to ${w.endTime}` },
+                    { l: lang === 'hi' ? '01  शुभ डिलीवरी मुहूर्त' : '01  Shubh Delivery Window', v: `${w.startDate} · ${w.startTime} ${lang === 'hi' ? 'से' : 'to'} ${w.endTime}` },
                     { l: lang === 'hi' ? '02  शुभ पंजीकरण अंक' : '02  Lucky Registration Number', v: `${n.chaldeanDriverNumber} (${n.recommendedCombinations.slice(0,3).join(', ')})` },
                     { l: lang === 'hi' ? '03  शुभ वाहन रंग' : '03  Auspicious Vehicle Colour', v: translateValue(cols.recommendedColours[0].name.split('/')[0].trim()) },
                     { l: lang === 'hi' ? '04  प्रथम ड्राइव दिशा' : '04  First Drive Direction', v: `${translateValue(dir.primaryDirection)} · ${translateValue(dir.vastuSymbol.split('(')[0].trim())}` },

@@ -341,6 +341,7 @@ function Phase4ReportView({ response, input, onReset }: { response: Phase3Comput
 
 /* ─── MAIN PAGE ──────────────────────────────────────────────── */
 export default function VahanCalculatePage() {
+  const { lang } = useLanguage();
   const [step, setStep] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingStage, setLoadingStage] = useState<number>(0);
@@ -410,7 +411,7 @@ export default function VahanCalculatePage() {
 
         {apiError && (
           <div style={{ backgroundColor: '#FEE2E2', border: '1px solid #FCA5A5', color: '#991B1B', padding: '14px 18px', borderRadius: 8, marginBottom: 24, fontSize: 13 }}>
-            <strong>Calculation Error:</strong> {apiError}
+            <strong>{lang === 'hi' ? 'गणना त्रुटि:' : 'Calculation Error:'}</strong> {apiError}
           </div>
         )}
 
