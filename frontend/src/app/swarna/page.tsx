@@ -237,11 +237,13 @@ export default function SwarnaPage() {
               </div>
             )}
 
-            {/* Section 1: Guidance Category */}
+            {/* Section 1: Guidance Mode Selection */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>1. GUIDANCE TYPE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '१. मार्गदर्शन का प्रकार' : '1. GUIDANCE TYPE'}
+              </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
                 <button
                   type="button"
                   onClick={() => setGuidanceType('gold_purchase')}
@@ -252,8 +254,12 @@ export default function SwarnaPage() {
                     padding: '16px 20px', borderRadius: 6, cursor: 'pointer', textAlign: 'left',
                   }}
                 >
-                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>Gold Purchase</p>
-                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>Personal gold asset buying windows</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>
+                    {lang === 'hi' ? 'स्वर्ण क्रय (सोना)' : 'Gold Purchase'}
+                  </p>
+                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>
+                    {lang === 'hi' ? 'व्यक्तिगत स्वर्ण आभूषण क्रय मुहूर्त' : 'Personal gold asset buying windows'}
+                  </p>
                 </button>
 
                 <button
@@ -266,8 +272,12 @@ export default function SwarnaPage() {
                     padding: '16px 20px', borderRadius: 6, cursor: 'pointer', textAlign: 'left',
                   }}
                 >
-                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>Gold Gift / Auspicious</p>
-                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>Marriage &amp; auspicious gifting windows</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>
+                    {lang === 'hi' ? 'स्वर्ण उपहार / शुभ क्रय' : 'Gold Gift / Auspicious'}
+                  </p>
+                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>
+                    {lang === 'hi' ? 'विवाह एवं मांगलिक उपहार मुहूर्त' : 'Marriage & auspicious gifting windows'}
+                  </p>
                 </button>
 
                 <button
@@ -280,22 +290,30 @@ export default function SwarnaPage() {
                     padding: '16px 20px', borderRadius: 6, cursor: 'pointer', textAlign: 'left',
                   }}
                 >
-                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>Gemstone Suitability</p>
-                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>Traditional Lagna &amp; Moon gem alignment</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, margin: 0, marginBottom: 4 }}>
+                    {lang === 'hi' ? 'रत्न धारण अनुकूलता' : 'Gemstone Suitability'}
+                  </p>
+                  <p style={{ fontSize: 11, opacity: 0.8, margin: 0 }}>
+                    {lang === 'hi' ? 'पारंपरिक लग्न एवं चंद्र रत्न संरेखण' : 'Traditional Lagna & Moon gem alignment'}
+                  </p>
                 </button>
               </div>
             </div>
 
             {/* Section 2: User Birth Details */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>2. USER BIRTH PROFILE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '२. उपयोगकर्ता जन्म विवरण' : '2. USER BIRTH PROFILE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Full Name</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'पूरा नाम' : 'Full Name'}
+                  </label>
                   <input
                     type="text"
-                    placeholder="Enter your full name"
+                    placeholder={lang === 'hi' ? 'अपना पूरा नाम दर्ज करें' : 'Enter your full name'}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
@@ -304,17 +322,21 @@ export default function SwarnaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth City</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म शहर' : 'Birth City'}
+                  </label>
                   <CitySearch
                     value={birthCity}
                     onChange={(res: CityResult) => setBirthCity(res.shortName)}
-                    placeholder="Search birth city..."
+                    placeholder={lang === 'hi' ? 'जन्म शहर खोजें...' : 'Search birth city...'}
                     inputStyle={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Date of Birth</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म तिथि' : 'Date of Birth'}
+                  </label>
                   <input
                     type="date"
                     value={dateOfBirth}
@@ -325,7 +347,9 @@ export default function SwarnaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth Time (24h)</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म समय (24 घंटे)' : 'Birth Time (24h)'}
+                  </label>
                   <input
                     type="time"
                     value={birthTime}
@@ -339,52 +363,60 @@ export default function SwarnaPage() {
 
             {/* Section 3: Specific Item / Gemstone Inputs */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>3. ITEM &amp; GEMSTONE PARAMETERS</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '३. वस्तु एवं रत्न विवरण' : '3. ITEM & GEMSTONE PARAMETERS'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 {guidanceType === 'gemstone_guidance' ? (
                   <div>
-                    <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Gemstone Category</label>
+                    <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                      {lang === 'hi' ? 'रत्न श्रेणी' : 'Gemstone Category'}
+                    </label>
                     <select
                       value={gemstoneCategory}
                       onChange={(e) => setGemstoneCategory(e.target.value)}
                       required
                       style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                     >
-                      <option value="">Select Gemstone Category</option>
-                      <option value="Ruby">Ruby (Sun)</option>
-                      <option value="Pearl">Pearl (Moon)</option>
-                      <option value="Red Coral">Red Coral (Mars)</option>
-                      <option value="Emerald">Emerald (Mercury)</option>
-                      <option value="Yellow Sapphire">Yellow Sapphire (Jupiter)</option>
-                      <option value="Diamond">Diamond (Venus)</option>
-                      <option value="Blue Sapphire">Blue Sapphire (Saturn)</option>
-                      <option value="Hessonite">Hessonite (Rahu)</option>
-                      <option value="Cat's Eye">Cat&apos;s Eye (Ketu)</option>
+                      <option value="">{lang === 'hi' ? 'रत्न श्रेणी चुनें' : 'Select Gemstone Category'}</option>
+                      <option value="Ruby">{lang === 'hi' ? 'माणिक (Ruby - सूर्य)' : 'Ruby (Sun)'}</option>
+                      <option value="Pearl">{lang === 'hi' ? 'मोती (Pearl - चंद्रमा)' : 'Pearl (Moon)'}</option>
+                      <option value="Red Coral">{lang === 'hi' ? 'मूंगा (Red Coral - मंगल)' : 'Red Coral (Mars)'}</option>
+                      <option value="Emerald">{lang === 'hi' ? 'पन्ना (Emerald - बुध)' : 'Emerald (Mercury)'}</option>
+                      <option value="Yellow Sapphire">{lang === 'hi' ? 'पुखराज (Yellow Sapphire - गुरु)' : 'Yellow Sapphire (Jupiter)'}</option>
+                      <option value="Diamond">{lang === 'hi' ? 'हीरा (Diamond - शुक्र)' : 'Diamond (Venus)'}</option>
+                      <option value="Blue Sapphire">{lang === 'hi' ? 'नीलम (Blue Sapphire - शनि)' : 'Blue Sapphire (Saturn)'}</option>
+                      <option value="Hessonite">{lang === 'hi' ? 'गोमेद (Hessonite - राहु)' : 'Hessonite (Rahu)'}</option>
+                      <option value="Cat's Eye">{lang === 'hi' ? 'लहसुनिया (Cat\'s Eye - केतु)' : 'Cat\'s Eye (Ketu)'}</option>
                     </select>
                   </div>
                 ) : (
                   <div>
-                    <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Gold Purpose</label>
+                    <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                      {lang === 'hi' ? 'स्वर्ण क्रय का उद्देश्य' : 'Gold Purpose'}
+                    </label>
                     <select
                       value={purpose}
                       onChange={(e) => setPurpose(e.target.value)}
                       required
                       style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                     >
-                      <option value="">Select Purpose</option>
-                      <option value="personal">Personal Gold Bullion / Jewellery</option>
-                      <option value="gift">Marriage &amp; Family Gift</option>
-                      <option value="auspicious">Pushya &amp; Festival Acquisition</option>
+                      <option value="">{lang === 'hi' ? 'उद्देश्य चुनें' : 'Select Purpose'}</option>
+                      <option value="personal">{lang === 'hi' ? 'व्यक्तिगत स्वर्ण आभूषण / बुलियन' : 'Personal Gold Bullion / Jewellery'}</option>
+                      <option value="gift">{lang === 'hi' ? 'विवाह एवं पारिवारिक उपहार' : 'Marriage & Family Gift'}</option>
+                      <option value="auspicious">{lang === 'hi' ? 'पुष्य नक्षत्र एवं त्योहार क्रय' : 'Pushya & Festival Acquisition'}</option>
                     </select>
                   </div>
                 )}
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Item / Ornament Name (Optional)</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'वस्तु / आभूषण का नाम (वैकल्पिक)' : 'Item / Ornament Name (Optional)'}
+                  </label>
                   <input
                     type="text"
-                    placeholder="e.g. Swarna Kangan"
+                    placeholder={lang === 'hi' ? 'उदा. स्वर्ण कंगन / हार' : 'e.g. Swarna Kangan'}
                     value={itemName}
                     onChange={(e) => setItemName(e.target.value)}
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
@@ -395,11 +427,15 @@ export default function SwarnaPage() {
 
             {/* Section 4: Target Date Range */}
             <div style={{ marginBottom: 40 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>4. TARGET DATE RANGE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '४. लक्ष्य तिथि सीमा' : '4. TARGET DATE RANGE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search Start Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'प्रारंभ तिथि' : 'Search Start Date'}
+                  </label>
                   <input
                     type="date"
                     value={startDate}
@@ -410,7 +446,9 @@ export default function SwarnaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search End Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'अंतिम तिथि' : 'Search End Date'}
+                  </label>
                   <input
                     type="date"
                     value={endDate}
@@ -438,7 +476,9 @@ export default function SwarnaPage() {
                 cursor: loading ? 'not-allowed' : 'pointer',
               }}
             >
-              {loading ? 'CALCULATING SWARNA GUIDANCE...' : 'CALCULATE SWARNA GUIDANCE \u2192'}
+              {loading
+                ? (lang === 'hi' ? 'स्वर्ण एवं रत्न मार्गदर्शन गणना चल रही है...' : 'CALCULATING SWARNA GUIDANCE...')
+                : (lang === 'hi' ? 'स्वर्ण एवं रत्न मार्गदर्शन प्राप्त करें \u2192' : 'CALCULATE SWARNA GUIDANCE \u2192')}
             </button>
           </form>
         ) : (
@@ -450,35 +490,53 @@ export default function SwarnaPage() {
                 onClick={() => setStep('form')}
                 style={{ backgroundColor: 'transparent', border: `1px solid ${DARK}`, color: DARK, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '8px 18px', borderRadius: 4, cursor: 'pointer' }}
               >
-                &larr; EDIT INPUTS
+                {lang === 'hi' ? '\u2190 इनपुट बदलें' : '\u2190 EDIT INPUTS'}
               </button>
 
-              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>REPORT ID: {report?.requestId}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>
+                {lang === 'hi' ? 'रिपोर्ट आईडी:' : 'REPORT ID:'} {report?.requestId}
+              </span>
             </div>
 
             {/* Summary Header */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>SUMMARY</p>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Swarna &amp; Ratna Astrological Report
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'सारांश' : 'SUMMARY'}
+              </p>
+              <h2 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 600, marginBottom: 20 }}>
+                {lang === 'hi' ? 'स्वर्ण एवं रत्न ज्योतिषीय विश्लेषण रिपोर्ट' : 'Swarna & Ratna Astrological Report'}
               </h2>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, backgroundColor: SECONDARY_BG, padding: 24, borderRadius: 8 }}>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>USER NAME</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'उपयोगकर्ता का नाम' : 'USER NAME'}
+                  </p>
                   <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.fullName}</p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>GUIDANCE TYPE</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.guidanceType}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'मार्गदर्शन का प्रकार' : 'GUIDANCE TYPE'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.guidanceType || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>PURPOSE / GEMSTONE</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.gemstoneCategory !== 'N/A' ? report?.inputSummary.gemstoneCategory : report?.inputSummary.purpose}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'उद्देश्य / रत्न' : 'PURPOSE / GEMSTONE'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.gemstoneCategory !== 'N/A' ? report?.inputSummary.gemstoneCategory || '' : report?.inputSummary.purpose || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>ITEM NAME</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.itemName}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'वस्तु का नाम' : 'ITEM NAME'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {report?.inputSummary.itemName || (lang === 'hi' ? 'उल्लेख नहीं' : 'N/A')}
+                  </p>
                 </div>
               </div>
             </div>
@@ -486,36 +544,50 @@ export default function SwarnaPage() {
             {/* Gemstone Suitability Report (If applicable) */}
             {report?.gemstoneReport && (
               <div style={{ backgroundColor: WHITE, border: `1px solid ${GOLD}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>GEMSTONE SUITABILITY ANALYSIS</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 600, margin: 0 }}>
-                    {report.gemstoneReport.gemstoneCategory}
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                  {lang === 'hi' ? 'रत्न धारण अनुकूलता विश्लेषण' : 'GEMSTONE SUITABILITY ANALYSIS'}
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+                  <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: 24, color: DARK, fontWeight: 600, margin: 0 }}>
+                    {translateValue(report.gemstoneReport.gemstoneCategory)}
                   </h3>
                   <span style={{ backgroundColor: DARK, color: PRIMARY_BG, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '4px 12px', borderRadius: 100 }}>
-                    {report.gemstoneReport.compatibilityCategory}
+                    {translateValue(report.gemstoneReport.compatibilityCategory)}
                   </span>
                 </div>
                 <p style={{ color: DARK, fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
-                  {report.gemstoneReport.traditionalAssociation}
+                  {translateValue(report.gemstoneReport.traditionalAssociation)}
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 20, backgroundColor: SECONDARY_BG, padding: 20, borderRadius: 8 }}>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>RULING PLANET</p>
-                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>{report.gemstoneReport.rulingPlanet}</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>
+                      {lang === 'hi' ? 'स्वामी ग्रह' : 'RULING PLANET'}
+                    </p>
+                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>
+                      {translateValue(report.gemstoneReport.rulingPlanet)}
+                    </p>
                   </div>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>RECOMMENDED METAL</p>
-                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>{report.gemstoneReport.recommendedMetal}</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>
+                      {lang === 'hi' ? 'अनुशंसित धातु' : 'RECOMMENDED METAL'}
+                    </p>
+                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>
+                      {translateValue(report.gemstoneReport.recommendedMetal)}
+                    </p>
                   </div>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>WEARING HORA / TIME</p>
-                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>{report.gemstoneReport.wearingDayTime}</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>
+                      {lang === 'hi' ? 'धारण समय / होरा' : 'WEARING HORA / TIME'}
+                    </p>
+                    <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>
+                      {translateValue(report.gemstoneReport.wearingDayTime)}
+                    </p>
                   </div>
                 </div>
 
                 <div style={{ marginTop: 16, fontSize: 12, color: MUTED }}>
-                  <strong>Caution Note:</strong> {report.gemstoneReport.cautionNote}
+                  <strong>{lang === 'hi' ? 'सावधानी टिप्पणी:' : 'Caution Note:'}</strong> {translateValue(report.gemstoneReport.cautionNote)}
                 </div>
               </div>
             )}

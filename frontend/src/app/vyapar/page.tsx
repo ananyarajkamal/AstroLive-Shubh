@@ -213,8 +213,8 @@ export default function VyaparPage() {
       <main style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 32px 96px' }}>
         {step === 'form' ? (
           <form onSubmit={handleCalculate} style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 40 }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
-              Business &amp; Founder Parameters
+            <h2 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 600, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
+              {lang === 'hi' ? 'व्यापार एवं संस्थापक जन्म विवरण' : 'Enterprise & Founder Details'}
             </h2>
 
             {errorMsg && (
@@ -225,14 +225,18 @@ export default function VyaparPage() {
 
             {/* Section 1: Founder Details */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>1. FOUNDER BIRTH PROFILE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '१. संस्थापक प्रोफाइल' : '1. FOUNDER PROFILE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Full Name</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'संस्थापक का पूरा नाम' : 'Founder Full Name'}
+                  </label>
                   <input
                     type="text"
-                    placeholder="Enter founder full name"
+                    placeholder={lang === 'hi' ? 'संस्थापक का नाम दर्ज करें' : 'Enter founder full name'}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
@@ -241,17 +245,21 @@ export default function VyaparPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth City</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म शहर' : 'Birth City'}
+                  </label>
                   <CitySearch
                     value={birthCity}
                     onChange={(res: CityResult) => setBirthCity(res.shortName)}
-                    placeholder="Search birth city..."
+                    placeholder={lang === 'hi' ? 'जन्म शहर खोजें...' : 'Search birth city...'}
                     inputStyle={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Date of Birth</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म तिथि' : 'Date of Birth'}
+                  </label>
                   <input
                     type="date"
                     value={dateOfBirth}
@@ -262,7 +270,9 @@ export default function VyaparPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth Time (24h)</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म समय (24 घंटे)' : 'Birth Time (24h)'}
+                  </label>
                   <input
                     type="time"
                     value={birthTime}
@@ -276,51 +286,59 @@ export default function VyaparPage() {
 
             {/* Section 2: Business & Milestone Parameters */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>2. ENTERPRISE DETAILS</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '२. व्यापारिक विवरण' : '2. ENTERPRISE DETAILS'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Business Category</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'व्यापार श्रेणी' : 'Business Category'}
+                  </label>
                   <select
                     value={businessType}
                     onChange={(e) => setBusinessType(e.target.value)}
                     required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   >
-                    <option value="">Select Business Category</option>
-                    <option value="technology">Technology / SaaS</option>
-                    <option value="startup">Startup</option>
-                    <option value="retail">Retail Store</option>
-                    <option value="restaurant">Restaurant / Food</option>
-                    <option value="service">Professional Service</option>
-                    <option value="manufacturing">Manufacturing</option>
-                    <option value="other">Other Enterprise</option>
+                    <option value="">{lang === 'hi' ? 'श्रेणी चुनें' : 'Select Business Category'}</option>
+                    <option value="technology">{lang === 'hi' ? 'प्रौद्योगिकी / टेक / आईटी' : 'Technology / SaaS'}</option>
+                    <option value="startup">{lang === 'hi' ? 'स्टार्टअप' : 'Startup'}</option>
+                    <option value="retail">{lang === 'hi' ? 'रिटेल स्टोर / दुकान' : 'Retail Store'}</option>
+                    <option value="restaurant">{lang === 'hi' ? 'रेस्तरां / खाद्य व्यवसाय' : 'Restaurant / Food'}</option>
+                    <option value="service">{lang === 'hi' ? 'पेशेवर सेवाएं' : 'Professional Service'}</option>
+                    <option value="manufacturing">{lang === 'hi' ? 'विनिर्माण / मैन्युफैक्चरिंग' : 'Manufacturing'}</option>
+                    <option value="other">{lang === 'hi' ? 'अन्य उद्यम' : 'Other Enterprise'}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Commercial Milestone</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'व्यापारिक मील का पत्थर' : 'Commercial Milestone'}
+                  </label>
                   <select
                     value={milestone}
                     onChange={(e) => setMilestone(e.target.value)}
                     required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   >
-                    <option value="">Select Commercial Milestone</option>
-                    <option value="launch">Business Grand Launch</option>
-                    <option value="incorporation">Company Incorporation</option>
-                    <option value="shop_opening">Shop / Showroom Opening</option>
-                    <option value="office_opening">Office Opening</option>
-                    <option value="ribbon_cutting">Ribbon Cutting</option>
-                    <option value="product_launch">Product Launch</option>
+                    <option value="">{lang === 'hi' ? 'मील का पत्थर चुनें' : 'Select Commercial Milestone'}</option>
+                    <option value="launch">{lang === 'hi' ? 'व्यावसायिक भव्य शुभारंभ' : 'Business Grand Launch'}</option>
+                    <option value="incorporation">{lang === 'hi' ? 'कंपनी स्थापना / पंजीकरण' : 'Company Incorporation'}</option>
+                    <option value="shop_opening">{lang === 'hi' ? 'दुकान / शोरूम उद्घाटन' : 'Shop / Showroom Opening'}</option>
+                    <option value="office_opening">{lang === 'hi' ? 'कार्यालय का उद्घाटन' : 'Office Opening'}</option>
+                    <option value="ribbon_cutting">{lang === 'hi' ? 'रिबन कटिंग समारोह' : 'Ribbon Cutting'}</option>
+                    <option value="product_launch">{lang === 'hi' ? 'उत्पाद लॉन्च' : 'Product Launch'}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Brand Name (Optional)</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'ब्रांड का नाम (वैकल्पिक)' : 'Brand Name (Optional)'}
+                  </label>
                   <input
                     type="text"
-                    placeholder="Enter brand name"
+                    placeholder={lang === 'hi' ? 'ब्रांड का नाम दर्ज करें' : 'Enter brand name'}
                     value={brandName}
                     onChange={(e) => setBrandName(e.target.value)}
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
@@ -331,11 +349,15 @@ export default function VyaparPage() {
 
             {/* Section 3: Target Date Range */}
             <div style={{ marginBottom: 40 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>3. TARGET DATE RANGE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '३. लक्ष्य तिथि सीमा' : '3. TARGET DATE RANGE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search Start Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'प्रारंभ तिथि' : 'Search Start Date'}
+                  </label>
                   <input
                     type="date"
                     value={startDate}
@@ -346,7 +368,9 @@ export default function VyaparPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search End Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'अंतिम तिथि' : 'Search End Date'}
+                  </label>
                   <input
                     type="date"
                     value={endDate}
@@ -374,7 +398,9 @@ export default function VyaparPage() {
                 cursor: loading ? 'not-allowed' : 'pointer',
               }}
             >
-              {loading ? 'CALCULATING VYAPAR GUIDANCE...' : 'CALCULATE VYAPAR GUIDANCE \u2192'}
+              {loading
+                ? (lang === 'hi' ? 'व्यापार मार्गदर्शन गणना चल रही है...' : 'CALCULATING VYAPAR GUIDANCE...')
+                : (lang === 'hi' ? 'व्यापार मार्गदर्शन प्राप्त करें \u2192' : 'CALCULATE VYAPAR GUIDANCE \u2192')}
             </button>
           </form>
         ) : (
@@ -386,35 +412,53 @@ export default function VyaparPage() {
                 onClick={() => setStep('form')}
                 style={{ backgroundColor: 'transparent', border: `1px solid ${DARK}`, color: DARK, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '8px 18px', borderRadius: 4, cursor: 'pointer' }}
               >
-                &larr; EDIT INPUTS
+                {lang === 'hi' ? '\u2190 इनपुट बदलें' : '\u2190 EDIT INPUTS'}
               </button>
 
-              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>REPORT ID: {report?.requestId}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>
+                {lang === 'hi' ? 'रिपोर्ट आईडी:' : 'REPORT ID:'} {report?.requestId}
+              </span>
             </div>
 
             {/* Business Summary */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>SUMMARY</p>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Vyapar Enterprise Milestone Report
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'सारांश' : 'SUMMARY'}
+              </p>
+              <h2 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 600, marginBottom: 20 }}>
+                {lang === 'hi' ? 'व्यापार उद्यम एवं अंक ज्योतिष रिपोर्ट' : 'Vyapar Enterprise Milestone Report'}
               </h2>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, backgroundColor: SECONDARY_BG, padding: 24, borderRadius: 8 }}>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>FOUNDER</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'संस्थापक' : 'FOUNDER'}
+                  </p>
                   <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.fullName}</p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>BUSINESS TYPE</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.businessType}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'व्यापार का प्रकार' : 'BUSINESS TYPE'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.businessType || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>MILESTONE</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.milestone}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'मील का पत्थर' : 'MILESTONE'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.milestone || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>BRAND NAME</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.brandName}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'ब्रांड नाम' : 'BRAND NAME'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {report?.inputSummary.brandName || (lang === 'hi' ? 'उल्लेख नहीं' : 'N/A')}
+                  </p>
                 </div>
               </div>
             </div>
@@ -422,26 +466,32 @@ export default function VyaparPage() {
             {/* Brand Numerology (if present) */}
             {report?.brandNumerology && (
               <div style={{ backgroundColor: WHITE, border: `1px solid ${GOLD}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>BRAND NUMEROLOGY</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 600, margin: 0 }}>
-                    Brand Sum: {report.brandNumerology.compoundNumber} &rarr; Single Digit {report.brandNumerology.reducedNumber}
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                  {lang === 'hi' ? 'ब्रांड नाम अंक ज्योतिष' : 'BRAND NUMEROLOGY'}
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+                  <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: 24, color: DARK, fontWeight: 600, margin: 0 }}>
+                    {lang === 'hi' ? 'ब्रांड यौगिक अंक:' : 'Brand Sum:'} {report.brandNumerology.compoundNumber} &rarr; {lang === 'hi' ? 'एकल अंक' : 'Single Digit'} {report.brandNumerology.reducedNumber}
                   </h3>
                   <span style={{ backgroundColor: DARK, color: PRIMARY_BG, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '4px 12px', borderRadius: 100 }}>
-                    {report.brandNumerology.rulingPlanet}
+                    {translateValue(report.brandNumerology.rulingPlanet)}
                   </span>
                 </div>
                 <p style={{ color: DARK, fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
-                  {report.brandNumerology.analysis}
+                  {translateValue(report.brandNumerology.analysis)}
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, backgroundColor: SECONDARY_BG, padding: 20, borderRadius: 8 }}>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>FAVORABLE BRAND NUMBERS</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: GOLD, marginBottom: 4 }}>
+                      {lang === 'hi' ? 'शुभ ब्रांड अंक' : 'FAVORABLE BRAND NUMBERS'}
+                    </p>
                     <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>{report.brandNumerology.favorableNumbers.join(', ')}</p>
                   </div>
                   <div>
-                    <p style={{ fontSize: 11, fontWeight: 700, color: DARK, marginBottom: 4 }}>NUMBERS TO AVOID</p>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: DARK, marginBottom: 4 }}>
+                      {lang === 'hi' ? 'वर्जित अंक' : 'NUMBERS TO AVOID'}
+                    </p>
                     <p style={{ fontSize: 14, fontWeight: 600, color: DARK }}>{report.brandNumerology.numbersToAvoid.join(', ')}</p>
                   </div>
                 </div>
@@ -450,34 +500,44 @@ export default function VyaparPage() {
 
             {/* Auspicious Shubh Windows */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>COMMERCIAL MUHURAT WINDOWS</p>
-              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Recommended Milestone Dates ({report?.inputSummary.startDate} to {report?.inputSummary.endDate})
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'व्यापारिक शुभ मुहूर्त समय' : 'COMMERCIAL MUHURAT WINDOWS'}
+              </p>
+              <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: 24, color: DARK, fontWeight: 600, marginBottom: 20 }}>
+                {lang === 'hi' ? 'अनुशंसित तिथि मुहूर्त' : 'Recommended Milestone Dates'} ({report?.inputSummary.startDate} {lang === 'hi' ? 'से' : 'to'} {report?.inputSummary.endDate})
               </h3>
 
               {report?.shubhWindows && report.shubhWindows.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {report.shubhWindows.map((win, idx) => (
                     <div key={idx} style={{ backgroundColor: SECONDARY_BG, borderLeft: `4px solid ${GOLD}`, padding: 20, borderRadius: '0 8px 8px 0' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
                         <span style={{ fontSize: 15, fontWeight: 700, color: DARK }}>{win.date} ({win.startTime} - {win.endTime})</span>
-                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>{win.milestone}</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>
+                          {translateValue(win.milestone)}
+                        </span>
                       </div>
-                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>{win.rationale}</p>
+                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>
+                        {translateValue(win.rationale)}
+                      </p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p style={{ color: MUTED, fontSize: 14 }}>No suitable window found in the selected date range.</p>
+                <p style={{ color: MUTED, fontSize: 14 }}>
+                  {lang === 'hi' ? 'चयनित तिथि सीमा में कोई उपयुक्त मुहूर्त प्राप्त नहीं हुआ।' : 'No suitable window found in the selected date range.'}
+                </p>
               )}
             </div>
 
             {/* Notes */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 28 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>IMPORTANT NOTES</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'महत्वपूर्ण टिप्पणियां' : 'IMPORTANT NOTES'}
+              </p>
               <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: MUTED, lineHeight: 1.8 }}>
                 {report?.importantNotes.map((note, i) => (
-                  <li key={i}>{note}</li>
+                  <li key={i}>{translateValue(note)}</li>
                 ))}
               </ul>
             </div>

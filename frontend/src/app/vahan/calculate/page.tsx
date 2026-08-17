@@ -216,7 +216,7 @@ function Phase4ReportView({ response, input, onReset }: { response: Phase3Comput
         <div style={{ backgroundColor: WHITE, border: `1px solid ${BORDER}`, borderRadius: 10, padding: '28px 28px', marginBottom: 28 }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: GOLD, marginBottom: 12 }}>{t.report.sec2Title}</p>
           <p style={{ fontSize: 13, color: MUTED, marginBottom: 20 }}>
-            {t.report.evalRange} <strong style={{ color: NAVY }}>{input.deliveryStartDate}</strong> to <strong style={{ color: NAVY }}>{input.deliveryEndDate}</strong>
+            {t.report.evalRange} <strong style={{ color: NAVY }}>{input.deliveryStartDate}</strong> {lang === 'hi' ? 'से' : 'to'} <strong style={{ color: NAVY }}>{input.deliveryEndDate}</strong>
           </p>
 
           {recs && recs.delivery_windows && recs.delivery_windows.length > 0 ? (

@@ -80,6 +80,35 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Mars Power Energy': 'मंगल शक्ति ऊर्जा',
       'Saturn Stability Energy': 'शनि स्थायित्व ऊर्जा',
       'Moon Peace Energy': 'चंद्र शांति ऊर्जा',
+
+      // Griha Vastu & Muhurat Sentences
+      'Main door in North-East quadrant attracts prosperity, peace, and wisdom.': 'उत्तर-पूर्व दिशा में मुख्य द्वार समृद्धि, शांति और ज्ञान को आकर्षित करता है।',
+      'Balanced Water & Earth elements align with owner Janma Rashi.': 'जल एवं पृथ्वी तत्व का संतुलन स्वामी की जन्म राशि के अनुकूल है।',
+      'North-East (Ishan Kona)': 'उत्तर-पूर्व (ईशान कोण)',
+      'East (Indra Kona)': 'पूर्व (इंद्र कोण)',
+      'North (Kuber Kona)': 'उत्तर (कुबेर कोण)',
+      'North-West (Vayu Kona)': 'उत्तर-पश्चिम (वायु कोण)',
+      'South-East (Agni Kona)': 'दक्षिण-पूर्व (अग्नि कोण)',
+
+      // Vyapar Business & Numerology Sentences
+      'Chaldean destiny compound sum evaluated for commercial growth, fame and customer attraction.': 'व्यावसायिक वृद्धि, प्रसिद्धि और ग्राहक आकर्षण के लिए चाल्डियन न्यूमेरोलॉजी का विश्लेषण।',
+      'Business incorporation & launch timing aligned with Mercury & Jupiter Hora.': 'बुध और गुरु होरा के साथ संरेखित व्यावसायिक स्थापना और उद्घाटन मुहूर्त।',
+      'Highly Auspicious Business Launch Window': 'अत्यंत शुभ व्यावसायिक शुभारंभ मुहूर्त',
+      'Auspicious Brand Destiny Compound': 'शुभ ब्रांड भाग्य यौगिक अंक',
+
+      // Swarna & Pushya Alignment Sentences
+      'Pushya Nakshatra & Dhanteras alignment for gold purchase bringing eternal Lakshmi prosperity.': 'पुष्य नक्षत्र और धनतेरस का शुभ योग जो अक्षय लक्ष्मी समृद्धि लाता है।',
+      'Birth Moon sign gemstone compatibility evaluated for planetary strength and health.': 'ग्रह बल और स्वास्थ्य के लिए जन्म राशि के अनुसार रत्न अनुकूलता विश्लेषण।',
+      'Pushya Nakshatra Gold Buying Window': 'पुष्य नक्षत्र स्वर्ण क्रय शुभ मुहूर्त',
+      'Optimal Birth Gemstone Alignment': 'उत्कृष्ट जन्म रत्न अनुकूलता',
+
+      // General Statuses
+      'Highly Auspicious': 'अत्यंत शुभ मुहूर्त',
+      'Auspicious': 'शुभ मुहूर्त',
+      'Favorable': 'अनुकूल',
+      'Recommended': 'अनुशंसित',
+      'Avoid': 'वर्जित',
+      'Moderate': 'सामान्य',
     };
 
     if (exactPhrases[val.trim()]) {
@@ -88,6 +117,24 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     // 2. Word and Terminology Replacements
     const wordMappings: Record<string, string> = {
+      // Property & Activity Terms
+      'home': 'गृह / मकान', 'plot': 'भूखंड / प्लॉट', 'apartment': 'अपार्टमेंट / फ्लैट', 'commercial': 'व्यावसायिक संपत्ति',
+      'Home / House': 'गृह / मकान', 'Land / Plot': 'भूखंड / प्लॉट', 'Apartment / Flat': 'अपार्टमेंट / फ्लैट', 'Commercial Property': 'व्यावसायिक संपत्ति',
+      'griha_pravesh': 'गृह प्रवेश', 'bhoomi_pujan': 'भूमि पूजन', 'purchase': 'संपत्ति क्रय / पंजीकरण', 'handover': 'चाबी सुपुर्दगी', 'foundation': 'नींव निर्माण कार्य',
+      'Griha Pravesh (House Entry)': 'गृह प्रवेश', 'Bhoomi Pujan (Ground Laying)': 'भूमि पूजन', 'Property Purchase / Registration': 'संपत्ति क्रय / पंजीकरण', 'Key Handover': 'चाबी सुपुर्दगी', 'Pillar Foundation Work': 'नींव निर्माण कार्य',
+
+      // Orientation Terms
+      'east': 'पूर्व', 'north': 'उत्तर', 'north-east': 'उत्तर-पूर्व (ईशान)', 'west': 'पश्चिम', 'north-west': 'उत्तर-पश्चिम (वायव्य)', 'south-east': 'दक्षिण-पूर्व (आग्नेय)', 'south': 'दक्षिण', 'south-west': 'दक्षिण-पश्चिम (नैऋत्य)',
+      'East Facing': 'पूर्व मुखी', 'North Facing': 'उत्तर मुखी', 'North-East Facing': 'उत्तर-पूर्व मुखी (ईशान)', 'West Facing': 'पश्चिम मुखी', 'North-West Facing': 'उत्तर-पश्चिम मुखी (वायव्य)', 'South-East Facing': 'दक्षिण-पूर्व मुखी (आग्नेय)', 'South Facing': 'दक्षिण मुखी', 'South-West Facing': 'दक्षिण-पश्चिम मुखी (नैऋत्य)',
+
+      // Business & Numerology Terms
+      'inauguration': 'व्यावसायिक उद्घाटन', 'brand_numerology': 'ब्रांड नाम अंक ज्योतिष', 'retail': 'रिटेल / दुकान', 'tech': 'टेक / आईटी फर्म', 'office': 'कॉरपोरेट कार्यालय',
+      'Commercial Inauguration': 'व्यावसायिक उद्घाटन', 'Brand Name Numerology': 'ब्रांड नाम अंक ज्योतिष', 'Retail Store / Shop': 'रिटेल / दुकान', 'Tech / IT Firm': 'टेक / आईटी फर्म', 'Corporate Office': 'कॉरपोरेट कार्यालय',
+
+      // Swarna & Gemstones
+      'gold': 'स्वर्ण क्रय (सोना)', 'gemstone': 'रत्न धारण', 'Gold Acquisition': 'स्वर्ण क्रय (सोना)', 'Gemstone Recommendation': 'रत्न सिफारिश',
+      'Yellow Sapphire / Pukhraj': 'पुखराज (Yellow Sapphire)', 'Ruby / Manik': 'माणिक (Ruby)', 'Pearl / Moti': 'मोती (Pearl)', 'Red Coral / Moonga': 'मूंगा (Red Coral)', 'Emerald / Panna': 'पन्ना (Emerald)', 'Diamond / Heera': 'हीरा (Diamond)', 'Blue Sapphire / Neelam': 'नीलम (Blue Sapphire)',
+
       // Nakshatras
       'Ashwini': 'अश्विनी', 'Bharani': 'भरणी', 'Krittika': 'कृत्तिका', 'Rohini': 'रोहिणी',
       'Mrigashira': 'मृगशिरा', 'Ardra': 'आर्द्रा', 'Punarvasu': 'पुनर्वसु', 'Pushya': 'पुष्य',
@@ -104,7 +151,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Sagittarius': 'धनु', 'Capricorn': 'मकर', 'Aquarius': 'कुंभ', 'Pisces': 'मीन',
 
       // Days / Vara
-      'Sunday': 'सोमवार', 'Monday': 'सोमवार', 'Tuesday': 'मंगलवार', 'Wednesday': 'बुधवार',
+      'Sunday': 'रविवार', 'Monday': 'सोमवार', 'Tuesday': 'मंगलवार', 'Wednesday': 'बुधवार',
       'Thursday': 'गुरुवार', 'Friday': 'शुक्रवार', 'Saturday': 'शनिवार',
       'Ravivara': 'रविवार', 'Somavara': 'सोमवार', 'Mangalavara': 'मंगलवार',
       'Budhavara': 'बुधवार', 'Guruvara': 'गुरुवार', 'Shukravara': 'शुक्रवार', 'Shanivara': 'शनिवार',

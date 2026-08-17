@@ -236,8 +236,8 @@ export default function GrihaPage() {
       <main style={{ maxWidth: 1100, margin: '0 auto', padding: '56px 32px 96px' }}>
         {step === 'form' ? (
           <form onSubmit={handleCalculate} style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 40 }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
-              Property &amp; Birth Details
+            <h2 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 600, marginBottom: 32, borderBottom: `1px solid ${STONE}`, paddingBottom: 16 }}>
+              {lang === 'hi' ? 'संपत्ति विवरण एवं जन्म प्रोफाइल' : 'Property & Birth Details'}
             </h2>
 
             {errorMsg && (
@@ -248,14 +248,18 @@ export default function GrihaPage() {
 
             {/* Section 1: Birth Details */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>1. USER BIRTH PROFILE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '१. उपयोगकर्ता जन्म विवरण' : '1. USER BIRTH PROFILE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Full Name</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'पूरा नाम' : 'Full Name'}
+                  </label>
                   <input
                     type="text"
-                    placeholder="Enter your full name"
+                    placeholder={lang === 'hi' ? 'अपना पूरा नाम दर्ज करें' : 'Enter your full name'}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
@@ -264,17 +268,21 @@ export default function GrihaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth City</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म शहर' : 'Birth City'}
+                  </label>
                   <CitySearch
                     value={birthCity}
                     onChange={(res: CityResult) => setBirthCity(res.shortName)}
-                    placeholder="Search birth city..."
+                    placeholder={lang === 'hi' ? 'जन्म शहर खोजें...' : 'Search birth city...'}
                     inputStyle={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Date of Birth</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म तिथि' : 'Date of Birth'}
+                  </label>
                   <input
                     type="date"
                     value={dateOfBirth}
@@ -285,7 +293,9 @@ export default function GrihaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Birth Time (24h)</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'जन्म समय (24 घंटे)' : 'Birth Time (24h)'}
+                  </label>
                   <input
                     type="time"
                     value={birthTime}
@@ -299,59 +309,67 @@ export default function GrihaPage() {
 
             {/* Section 2: Property Parameters */}
             <div style={{ marginBottom: 36 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>2. PROPERTY PARAMETERS</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '२. संपत्ति पैरामीटर' : '2. PROPERTY PARAMETERS'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Property Type</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'संपत्ति का प्रकार' : 'Property Type'}
+                  </label>
                   <select
                     value={propertyType}
                     onChange={(e) => setPropertyType(e.target.value)}
                     required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   >
-                    <option value="">Select Property Type</option>
-                    <option value="home">Home / House</option>
-                    <option value="plot">Land / Plot</option>
-                    <option value="apartment">Apartment / Flat</option>
-                    <option value="commercial">Commercial Property</option>
+                    <option value="">{lang === 'hi' ? 'संपत्ति का प्रकार चुनें' : 'Select Property Type'}</option>
+                    <option value="home">{lang === 'hi' ? 'गृह / मकान' : 'Home / House'}</option>
+                    <option value="plot">{lang === 'hi' ? 'भूखंड / प्लॉट' : 'Land / Plot'}</option>
+                    <option value="apartment">{lang === 'hi' ? 'अपार्टमेंट / फ्लैट' : 'Apartment / Flat'}</option>
+                    <option value="commercial">{lang === 'hi' ? 'व्यावसायिक संपत्ति' : 'Commercial Property'}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Property Orientation</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'दिशा / ओरिएंटेशन' : 'Property Orientation'}
+                  </label>
                   <select
                     value={propertyOrientation}
                     onChange={(e) => setPropertyOrientation(e.target.value)}
                     required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   >
-                    <option value="">Select Orientation</option>
-                    <option value="east">East Facing</option>
-                    <option value="north">North Facing</option>
-                    <option value="north-east">North-East Facing</option>
-                    <option value="west">West Facing</option>
-                    <option value="north-west">North-West Facing</option>
-                    <option value="south-east">South-East Facing</option>
-                    <option value="south">South Facing</option>
-                    <option value="south-west">South-West Facing</option>
+                    <option value="">{lang === 'hi' ? 'ओरिएंटेशन चुनें' : 'Select Orientation'}</option>
+                    <option value="east">{lang === 'hi' ? 'पूर्व मुखी' : 'East Facing'}</option>
+                    <option value="north">{lang === 'hi' ? 'उत्तर मुखी' : 'North Facing'}</option>
+                    <option value="north-east">{lang === 'hi' ? 'उत्तर-पूर्व मुखी (ईशान)' : 'North-East Facing'}</option>
+                    <option value="west">{lang === 'hi' ? 'पश्चिम मुखी' : 'West Facing'}</option>
+                    <option value="north-west">{lang === 'hi' ? 'उत्तर-पश्चिम मुखी (वायव्य)' : 'North-West Facing'}</option>
+                    <option value="south-east">{lang === 'hi' ? 'दक्षिण-पूर्व मुखी (आग्नेय)' : 'South-East Facing'}</option>
+                    <option value="south">{lang === 'hi' ? 'दक्षिण मुखी' : 'South Facing'}</option>
+                    <option value="south-west">{lang === 'hi' ? 'दक्षिण-पश्चिम मुखी (नैऋत्य)' : 'South-West Facing'}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Preferred Activity</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'इच्छित गतिविधि' : 'Preferred Activity'}
+                  </label>
                   <select
                     value={preferredActivity}
                     onChange={(e) => setPreferredActivity(e.target.value)}
                     required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: 4, border: `1px solid ${STONE}`, fontSize: 14, backgroundColor: SECONDARY_BG, color: DARK }}
                   >
-                    <option value="">Select Activity</option>
-                    <option value="griha_pravesh">Griha Pravesh (House Entry)</option>
-                    <option value="bhoomi_pujan">Bhoomi Pujan (Ground Laying)</option>
-                    <option value="purchase">Property Purchase / Registration</option>
-                    <option value="handover">Key Handover</option>
-                    <option value="foundation">Pillar Foundation Work</option>
+                    <option value="">{lang === 'hi' ? 'गतिविधि चुनें' : 'Select Activity'}</option>
+                    <option value="griha_pravesh">{lang === 'hi' ? 'गृह प्रवेश' : 'Griha Pravesh (House Entry)'}</option>
+                    <option value="bhoomi_pujan">{lang === 'hi' ? 'भूमि पूजन' : 'Bhoomi Pujan (Ground Laying)'}</option>
+                    <option value="purchase">{lang === 'hi' ? 'संपत्ति क्रय / पंजीकरण' : 'Property Purchase / Registration'}</option>
+                    <option value="handover">{lang === 'hi' ? 'चाबी सुपुर्दगी' : 'Key Handover'}</option>
+                    <option value="foundation">{lang === 'hi' ? 'नींव निर्माण कार्य' : 'Pillar Foundation Work'}</option>
                   </select>
                 </div>
               </div>
@@ -359,11 +377,15 @@ export default function GrihaPage() {
 
             {/* Section 3: Target Date Range */}
             <div style={{ marginBottom: 40 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>3. TARGET DATE RANGE</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 16 }}>
+                {lang === 'hi' ? '३. लक्ष्य तिथि सीमा' : '3. TARGET DATE RANGE'}
+              </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search Start Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'प्रारंभ तिथि' : 'Search Start Date'}
+                  </label>
                   <input
                     type="date"
                     value={startDate}
@@ -374,7 +396,9 @@ export default function GrihaPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>Search End Date</label>
+                  <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: DARK, marginBottom: 6 }}>
+                    {lang === 'hi' ? 'अंतिम तिथि' : 'Search End Date'}
+                  </label>
                   <input
                     type="date"
                     value={endDate}
@@ -402,7 +426,9 @@ export default function GrihaPage() {
                 cursor: loading ? 'not-allowed' : 'pointer',
               }}
             >
-              {loading ? 'CALCULATING GRIHA GUIDANCE...' : 'CALCULATE GRIHA GUIDANCE \u2192'}
+              {loading
+                ? (lang === 'hi' ? 'गृह मार्गदर्शन गणना चल रही है...' : 'CALCULATING GRIHA GUIDANCE...')
+                : (lang === 'hi' ? 'गृह मार्गदर्शन प्राप्त करें \u2192' : 'CALCULATE GRIHA GUIDANCE \u2192')}
             </button>
           </form>
         ) : (
@@ -414,107 +440,147 @@ export default function GrihaPage() {
                 onClick={() => setStep('form')}
                 style={{ backgroundColor: 'transparent', border: `1px solid ${DARK}`, color: DARK, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '8px 18px', borderRadius: 4, cursor: 'pointer' }}
               >
-                &larr; EDIT INPUTS
+                {lang === 'hi' ? '\u2190 इनपुट बदलें' : '\u2190 EDIT INPUTS'}
               </button>
 
-              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>REPORT ID: {report?.requestId}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: MUTED }}>
+                {lang === 'hi' ? 'रिपोर्ट आईडी:' : 'REPORT ID:'} {report?.requestId}
+              </span>
             </div>
 
             {/* Property Summary */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>SUMMARY</p>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 32, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Griha Property &amp; Astrological Report
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'सारांश' : 'SUMMARY'}
+              </p>
+              <h2 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 26 : 32, color: DARK, fontWeight: 600, marginBottom: 20 }}>
+                {lang === 'hi' ? 'गृह संपत्ति एवं ज्योतिषीय विश्लेषण रिपोर्ट' : 'Griha Property & Astrological Report'}
               </h2>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, backgroundColor: SECONDARY_BG, padding: 24, borderRadius: 8 }}>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>PROPERTY OWNER</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'संपत्ति स्वामी' : 'PROPERTY OWNER'}
+                  </p>
                   <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.fullName}</p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>PROPERTY TYPE</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.propertyType}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'संपत्ति का प्रकार' : 'PROPERTY TYPE'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.propertyType || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>ORIENTATION</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.propertyOrientation}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'ओरिएंटेशन / दिशा' : 'ORIENTATION'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.propertyOrientation || '')}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>MILESTONE ACTIVITY</p>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>{report?.inputSummary.preferredActivity}</p>
+                  <p style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>
+                    {lang === 'hi' ? 'मुख्य गतिविधि' : 'MILESTONE ACTIVITY'}
+                  </p>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: DARK }}>
+                    {translateValue(report?.inputSummary.preferredActivity || '')}
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Vastu Orientation Analysis */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${GOLD}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>VASTU COMPATIBILITY</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 600, margin: 0 }}>
-                  {report?.orientationGuidance?.primaryOrientation || report?.vastuOrientation?.recommendedFacing} Orientation
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'वास्तु अनुकूलता विश्लेषण' : 'VASTU COMPATIBILITY'}
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+                <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: 24, color: DARK, fontWeight: 600, margin: 0 }}>
+                  {translateValue(report?.orientationGuidance?.primaryOrientation || report?.vastuOrientation?.recommendedFacing || '')}
                 </h3>
                 <span style={{ backgroundColor: DARK, color: PRIMARY_BG, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', padding: '4px 12px', borderRadius: 100 }}>
-                  {report?.orientationGuidance?.compatibilityCategory || 'Auspicious'}
+                  {translateValue(report?.orientationGuidance?.compatibilityCategory || 'Auspicious')}
                 </span>
               </div>
               <p style={{ color: DARK, fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>
-                {report?.orientationGuidance?.rationale || report?.vastuOrientation?.mainEntranceGuidance}
+                {translateValue(report?.orientationGuidance?.rationale || report?.vastuOrientation?.mainEntranceGuidance || '')}
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                 <div style={{ backgroundColor: SECONDARY_BG, padding: 20, borderRadius: 6 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: GOLD, marginBottom: 8 }}>FAVORABLE DIRECTIONS</p>
-                  <p style={{ fontSize: 13, color: DARK }}>{report?.orientationGuidance?.favorableDirections?.join(', ') || 'East, North-East, North'}</p>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: GOLD, marginBottom: 8 }}>
+                    {lang === 'hi' ? 'अनुकूल दिशाएं' : 'FAVORABLE DIRECTIONS'}
+                  </p>
+                  <p style={{ fontSize: 13, color: DARK }}>
+                    {report?.orientationGuidance?.favorableDirections?.map((d) => translateValue(d)).join(', ') || (lang === 'hi' ? 'पूर्व, उत्तर-पूर्व (ईशान), उत्तर' : 'East, North-East, North')}
+                  </p>
                 </div>
                 <div style={{ backgroundColor: SECONDARY_BG, padding: 20, borderRadius: 6 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: DARK, marginBottom: 8 }}>DIRECTIONS REQUIRING CAUTION</p>
-                  <p style={{ fontSize: 13, color: DARK }}>{report?.orientationGuidance?.directionsRequiringCaution?.join(', ') || 'South-West'}</p>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: DARK, marginBottom: 8 }}>
+                    {lang === 'hi' ? 'सावधानी योग्य दिशाएं' : 'DIRECTIONS REQUIRING CAUTION'}
+                  </p>
+                  <p style={{ fontSize: 13, color: DARK }}>
+                    {report?.orientationGuidance?.directionsRequiringCaution?.map((d) => translateValue(d)).join(', ') || (lang === 'hi' ? 'दक्षिण-पश्चिम (नैऋत्य)' : 'South-West')}
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Auspicious Timing Windows */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>SHUBH MUHURAT WINDOWS</p>
-              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Recommended Timing Windows ({report?.inputSummary.startDate} to {report?.inputSummary.endDate})
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'शुभ मुहूर्त समय विंडोज' : 'SHUBH MUHURAT WINDOWS'}
+              </p>
+              <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: 24, color: DARK, fontWeight: 600, marginBottom: 20 }}>
+                {lang === 'hi' ? 'अनुशंसित समय विंडोज' : 'Recommended Timing Windows'} ({report?.inputSummary.startDate} {lang === 'hi' ? 'से' : 'to'} {report?.inputSummary.endDate})
               </h3>
 
               {report?.shubhWindows && report.shubhWindows.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {report.shubhWindows.map((win, idx) => (
                     <div key={idx} style={{ backgroundColor: SECONDARY_BG, borderLeft: `4px solid ${GOLD}`, padding: 20, borderRadius: '0 8px 8px 0' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
                         <span style={{ fontSize: 15, fontWeight: 700, color: DARK }}>{win.date} ({win.startTime} - {win.endTime})</span>
-                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>{win.activity}</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>
+                          {translateValue(win.activity)}
+                        </span>
                       </div>
-                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>{win.rationale}</p>
+                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>
+                        {translateValue(win.rationale)}
+                      </p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p style={{ color: MUTED, fontSize: 14 }}>No suitable Muhurat window found in the selected date range.</p>
+                <p style={{ color: MUTED, fontSize: 14 }}>
+                  {lang === 'hi' ? 'चयनित तिथि सीमा में कोई उपयुक्त मुहूर्त विंडो प्राप्त नहीं हुई।' : 'No suitable Muhurat window found in the selected date range.'}
+                </p>
               )}
             </div>
 
             {/* Vastu Guidance & Notes */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
               <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 28 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>ACTIONABLE GUIDANCE</p>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                  {lang === 'hi' ? 'क्रियात्मक वास्तु मार्गदर्शन' : 'ACTIONABLE GUIDANCE'}
+                </p>
                 <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: DARK, lineHeight: 1.8 }}>
                   {report?.vastuRecommendations?.map((rec, i) => (
-                    <li key={i}>{rec}</li>
-                  )) || <li>Ensure main entrance threshold is kept clean, uncluttered, and well-lit.</li>}
+                    <li key={i}>{translateValue(rec)}</li>
+                  )) || <li>{lang === 'hi' ? 'मुख्य प्रवेश द्वार की देहरी को सदैव स्वच्छ, बाधा-मुक्त एवं सुसज्जित रखें।' : 'Ensure main entrance threshold is kept clean, uncluttered, and well-lit.'}</li>}
                 </ul>
               </div>
 
               <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 28 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>IMPORTANT NOTES</p>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                  {lang === 'hi' ? 'महत्वपूर्ण ज्योतिषीय टिप्पणियां' : 'IMPORTANT NOTES'}
+                </p>
                 <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: MUTED, lineHeight: 1.8 }}>
                   {report?.importantNotes?.map((note, i) => (
-                    <li key={i}>{note}</li>
-                  )) || <li>All calculated Muhurat windows are strictly bounded within your requested date range.</li>}
+                    <li key={i}>{translateValue(note)}</li>
+                  )) || <li>{lang === 'hi' ? 'सभी परिकलित मुहूर्त आपकी अनुरोधित तिथियों के भीतर ही सीमित हैं।' : 'All calculated Muhurat windows are strictly bounded within your requested date range.'}</li>}
                 </ul>
               </div>
             </div>
