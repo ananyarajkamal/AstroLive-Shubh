@@ -88,7 +88,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Leo': 'सिंह', 'Virgo': 'कन्या', 'Libra': 'तुला', 'Scorpio': 'वृश्चिक',
       'Sagittarius': 'धनु', 'Capricorn': 'मकर', 'Aquarius': 'कुंभ', 'Pisces': 'मीन',
 
-      // Days / Vara
+      // Days / Vara full strings from backend
+      'Sunday (Ravivar)': 'रविवार', 'Monday (Somvar)': 'सोमवार', 'Tuesday (Mangalvar)': 'मंगलवार',
+      'Wednesday (Budhvar)': 'बुधवार', 'Thursday (Guruvar)': 'गुरुवार',
+      'Friday (Shukravar)': 'शुक्रवार', 'Saturday (Shanivar)': 'शनिवार',
       'Sunday': 'रविवार', 'Monday': 'सोमवार', 'Tuesday': 'मंगलवार', 'Wednesday': 'बुधवार',
       'Thursday': 'गुरुवार', 'Friday': 'शुक्रवार', 'Saturday': 'शनिवार',
       'Ravivara': 'रविवार', 'Somavara': 'सोमवार', 'Mangalavara': 'मंगलवार',
@@ -96,10 +99,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
       // Directions
       'East': 'पूर्व', 'West': 'पश्चिम', 'North': 'उत्तर', 'South': 'दक्षिण',
-      'North-East': 'उत्तर-पूर्व (ईशान)', 'North-West': 'उत्तर-पश्चिम (वायव्य)',
-      'South-East': 'दक्षिण-पूर्व (आग्नेय)', 'South-West': 'दक्षिण-पश्चिम (नैऋत्य)',
-      'Northeast': 'उत्तर-पूर्व (ईशान)', 'Northwest': 'उत्तर-पश्चिम (वायव्य)',
-      'Southeast': 'दक्षिण-पूर्व (आग्नेय)', 'Southwest': 'दक्षिण-पश्चिम (नैऋत्य)',
+      'North-East': 'उत्तर-पूर्व', 'North-West': 'उत्तर-पश्चिम',
+      'South-East': 'दक्षिण-पूर्व', 'South-West': 'दक्षिण-पश्चिम',
+      'Northeast': 'उत्तर-पूर्व', 'Northwest': 'उत्तर-पश्चिम',
+      'Southeast': 'दक्षिण-पूर्व', 'Southwest': 'दक्षिण-पश्चिम',
 
       // Vehicle Types
       'Four-Wheeler Car': 'चार पहिया कार', 'Two-Wheeler Bike/Scooter': 'दोपहिया बाइक/स्कूटर',
@@ -108,10 +111,68 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Sedan': 'सेडान', 'Luxury Premium': 'लक्जरी प्रीमियम', 'Two-Wheeler / Bike': 'दोपहिया / बाइक',
       'Hatchback': 'हैचबैक',
 
+      // Vahan Colour Names
+      'Warm Bronze / Champagne Gold': 'वार्म ब्रॉन्ज़ / शैम्पेन गोल्ड',
+      'Pearl White / Glacier Silver': 'पर्ल व्हाइट / ग्लेशियर सिल्वर',
+      'Pearl White / Moonstone Silver': 'पर्ल व्हाइट / मूनस्टोन सिल्वर',
+      'Emerald Metallic Green': 'एमरल्ड मेटैलिक ग्रीन',
+      'Deep Midnight Navy / Metallic Blue': 'डीप मिडनाइट नेवी / मेटैलिक ब्लू',
+      'Champagne Gold / Soft Bronze': 'शैम्पेन गोल्ड / सॉफ्ट ब्रॉन्ज़',
+      'Crimson Red / Metallic Flame': 'क्रिमसन रेड / मेटैलिक फ्लेम',
+      'Matte Black / Charcoal Ash': 'मैट ब्लैक / चारकोल ऐश',
+      'Dark Charcoal / Ash Black': 'डार्क चारकोल / ऐश ब्लैक',
+      'Dark Charcoal / Black': 'डार्क चारकोल / ब्लैक',
+      'Jet Black': 'जेट ब्लैक',
+      'Midnight Dark Blue': 'मिडनाइट डार्क ब्लू',
+      'Matte Black': 'मैट ब्लैक',
+      'Pure White': 'शुद्ध सफेद',
+      'Bright Vermilion Red': 'ब्राइट वर्मिलियन रेड',
+      'Bright Flame Red': 'ब्राइट फ्लेम रेड',
+      'Bright Yellow / Amber': 'ब्राइट यलो / एम्बर',
+
       // Colors
       'White': 'सफेद', 'Silver': 'सिल्वर', 'Black': 'काला', 'Grey': 'ग्रे', 'Gray': 'ग्रे',
       'Red': 'लाल', 'Blue': 'नीला', 'Navy Blue': 'नेवी ब्लू', 'Green': 'हरा',
       'Yellow': 'पीला', 'Gold': 'गोल्ड', 'Brown': 'भूरा', 'Beige': 'बेज',
+
+      // Vahan Direction Vastu Symbols
+      'Purva Vastu Alignment (Sun Rule)': 'पूर्वी वास्तु संरेखण (सूर्य नियम)',
+      'Ishan Kona Vastu Alignment (Jupiter & Venus)': 'ईशान कोण वास्तु संरेखण (गुरु एवं शुक्र)',
+      'Ishan Kona Vastu Alignment (Jupiter Rule)': 'ईशान कोण वास्तु संरेखण (गुरु नियम)',
+      'Uttara Vastu Alignment (Mercury Rule)': 'उत्तरी वास्तु संरेखण (बुध नियम)',
+      'Vayavya Vastu Alignment (Moon Rule)': 'वायव्य वास्तु संरेखण (चंद्र नियम)',
+      'Vayavya Vastu Alignment (Saturn & Rahu Rule)': 'वायव्य वास्तु संरेखण (शनि एवं राहु नियम)',
+      'Pashchima Vastu Alignment (Venus Rule)': 'पश्चिमी वास्तु संरेखण (शुक्र नियम)',
+      'Pashchima Vastu Alignment (Saturn Rule)': 'पश्चिमी वास्तु संरेखण (शनि नियम)',
+      'Agneya Vastu Alignment (Mars Rule)': 'आग्नेय वास्तु संरेखण (मंगल नियम)',
+
+      // Vahan Hora Strings
+      'Sun / Mars Hora (08:00 - 09:30 AM)': 'सूर्य / मंगल होरा (08:00 - 09:30 AM)',
+      'Guru Hora (09:15 - 10:30 AM)': 'गुरु होरा (09:15 - 10:30 AM)',
+      'Budh Hora (10:00 - 11:15 AM)': 'बुध होरा (10:00 - 11:15 AM)',
+      'Budh Hora (09:30 - 10:45 AM)': 'बुध होरा (09:30 - 10:45 AM)',
+      'Chandra Hora (08:30 - 09:45 AM)': 'चंद्र होरा (08:30 - 09:45 AM)',
+      'Surya Hora (07:30 - 08:45 AM)': 'सूर्य होरा (07:30 - 08:45 AM)',
+      'Shukra Hora (10:15 - 11:30 AM)': 'शुक्र होरा (10:15 - 11:30 AM)',
+      'Mangal Hora (08:15 - 09:30 AM)': 'मंगल होरा (08:15 - 09:30 AM)',
+      'Guru Hora (09:00 - 10:15 AM)': 'गुरु होरा (09:00 - 10:15 AM)',
+      'Shani / Budh Hora (11:00 AM - 12:15 PM)': 'शनि / बुध होरा (11:00 AM - 12:15 PM)',
+      'Shani Hora (10:30 - 11:45 AM)': 'शनि होरा (10:30 - 11:45 AM)',
+      'Guru Hora (09:30 - 10:45 AM)': 'गुरु होरा (09:30 - 10:45 AM)',
+
+      // Vahan First Destination Strings
+      'Nearby Temple or Elevated Landmark': 'निकटवर्ती मंदिर या उच्च स्थल',
+      'Nearby Temple or Flowing Waterbody': 'निकटवर्ती मंदिर या बहती जलधारा',
+      'Prominent Commercial Avenue or Garden': 'प्रमुख व्यावसायिक मार्ग या उद्यान',
+      'Waterfront, Lake, or Serene Place of Worship': 'जलतट, झील या शांत पूजा स्थल',
+      'Royal Monument or Main City Square': 'शाही स्मारक या मुख्य शहर चौक',
+      'Botanical Park or Financial District': 'वनस्पति उद्यान या वित्तीय जिला',
+      'Aesthetic Promenade or Temple': 'सुंदर सैरगाह या मंदिर',
+      'Nearby Temple or Hilltop Viewpoint': 'निकटवर्ती मंदिर या पहाड़ी दृश्य स्थल',
+      'Sacred Pilgrimage Temple or University Campus': 'तीर्थ मंदिर या विश्वविद्यालय परिसर',
+      'Historic Stone Monument or Corporate Plaza': 'ऐतिहासिक स्मारक या कॉर्पोरेट प्लाज़ा',
+      'Modern Technology Park or Scenic Bridge': 'आधुनिक प्रौद्योगिकी पार्क या दर्शनीय पुल',
+      'Riverbank, Lake, or Peaceful Temple': 'नदी किनारा, झील या शांत मंदिर',
 
       // Astrology / Numerology Terms
       'Lagna': 'लग्न', 'Rashi': 'राशि', 'Moon Sign': 'चंद्र राशि', 'Janma Rashi': 'जन्म राशि',
@@ -121,8 +182,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     // 2. Exact Sentence & Phrase Mappings
     const exactPhrases: Record<string, string> = {
-      // Delivery Window Titles
+      // Vahan Delivery Window Titles
       'Chandra Siddhi & Amrit Kaal Muhurat': 'चंद्र सिद्धि एवं अमृत काल मुहूर्त',
+      'Bhauma Siddhi & Tejas Muhurat': 'भौम सिद्धि एवं तेजस मुहूर्त',
+      'Budh Siddhi & Abhijit Muhurat': 'बुध सिद्धि एवं अभिजित मुहूर्त',
+      'Amrit Siddhi & Pushya Nakshatra Muhurat': 'अमृत सिद्धि एवं पुष्य नक्षत्र मुहूर्त',
+      'Shukra Siddhi & Rohini Muhurat': 'शुक्र सिद्धि एवं रोहिणी मुहूर्त',
+      'Siddha Yoga & Shani Transit Muhurat': 'सिद्ध योग एवं शनि गोचर मुहूर्त',
+      'Shubh Abhijit & Surya Muhurat': 'शुभ अभिजित एवं सूर्य मुहूर्त',
       'Rohini Nakshatra & Guru Hora Alignment': 'रोहिणी नक्षत्र एवं गुरु होरा योग',
       'Shukra Hora & Pushya Nakshatra Alignment': 'शुक्र होरा एवं पुष्य नक्षत्र योग',
       'Ravi Hora & Abhijit Muhurat': 'रवि होरा एवं अभिजित मुहूर्त',
@@ -148,6 +215,59 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Jupiter wisdom, divine protection, prosperity and grace': 'गुरु ग्रह की ज्ञान-ऊर्जा, ईश्वरीय सुरक्षा एवं समृद्धि',
       'Avoid Dark Red / Crimson due to Mars high heat combustion in 4th house': 'चतुर्थ भाव में मंगल के तीव्र प्रभाव के कारण गहरे लाल/क्रिमसन रंग से बचें',
       'Avoid Jet Black due to Saturn obstruction in vehicle 4th house': 'चतुर्थ भाव में शनि के प्रभाव के कारण गहरे काले रंग से बचें',
+
+      // Vahan Colour Descriptions (all rashis)
+      'Projects royal authority, luxury luster, and commanding road presence.': 'शाही अधिकार, वैभव चमक और प्रभावशाली उपस्थिति प्रदर्शित करता है।',
+      'Balances solar intensity with elegant composure.': 'सौर ऊर्जा की तीव्रता को सुंदर संतुलन प्रदान करता है।',
+      'Projects dynamic courage, warmth, and high vitality.': 'गतिशील साहस, ऊर्जा और उच्च जीवन शक्ति प्रदर्शित करता है।',
+      'Provides calming balance and driving clarity.': 'शांत संतुलन और ड्राइविंग स्पष्टता प्रदान करता है।',
+      'May attract sluggish energy and thermal heat absorption.': 'आलसी ऊर्जा और ताप अवशोषण को आकर्षित कर सकता है।',
+      'Enhances mental clarity, driving calm, and keeps vehicle energy pure.': 'मानसिक स्पष्टता, शांत ड्राइविंग और वाहन की शुद्ध ऊर्जा को बढ़ाता है।',
+      'Attracts prosperity, harmony, and elegant road presence.': 'समृद्धि, सामंजस्य और सुंदर सड़क उपस्थिति को आकर्षित करता है।',
+      'Projects executive elegance, stability, and high durability.': 'कार्यकारी लालित्य, स्थिरता और उच्च टिकाऊपन प्रदर्शित करता है।',
+      'May induce restless driving energy.': 'अशांत ड्राइविंग ऊर्जा उत्पन्न कर सकता है।',
+      'Enhances sharp focus, quick adaptability, and intelligence.': 'तीव्र फोकस, त्वरित अनुकूलनशीलता और बुद्धिमत्ता को बढ़ाता है।',
+      'Keeps vehicle energy light, pure, and refined.': 'वाहन ऊर्जा को हल्का, शुद्ध और परिष्कृत रखता है।',
+      'May absorb heat and mask road visibility.': 'ताप अवशोषित कर सड़क दृश्यता को कम कर सकता है।',
+      'Brings serene emotional calm, safety, and pristine vehicle aura.': 'शांत भावनात्मक संतुलन, सुरक्षा और शुद्ध वाहन ऊर्जा लाता है।',
+      'Brings divine protection and luxury luster.': 'दिव्य सुरक्षा और वैभव चमक लाता है।',
+      'Contrasts with sensitive lunar energy.': 'संवेदनशील चंद्र ऊर्जा के विपरीत है।',
+      'Projects executive precision, timeless durability, and calm focus.': 'कार्यकारी सटीकता, कालातीत टिकाऊपन और शांत फोकस प्रदर्शित करता है।',
+      'Keeps driving environment pristine and organized.': 'ड्राइविंग वातावरण को शुद्ध और व्यवस्थित रखता है।',
+      'May cause unnecessary agitation during dense traffic.': 'घने यातायात में अनावश्यक उत्तेजना उत्पन्न कर सकता है।',
+      'Enhances aesthetic elegance, smooth rides, and peace of mind.': 'सौंदर्य लालित्य, सुचारु सवारी और मन की शांति बढ़ाता है।',
+      'Attracts abundance, vehicle comfort, and auspicious trips.': 'समृद्धि, वाहन आराम और शुभ यात्राओं को आकर्षित करता है।',
+      'May absorb road heat and obscure nighttime visibility.': 'सड़क की गर्मी अवशोषित कर रात्रि दृश्यता कम कर सकता है।',
+      'Provides powerful stealth, confidence, and intense road resilience.': 'शक्तिशाली आत्मविश्वास और तीव्र सड़क लचीलापन प्रदान करता है।',
+      'Brings warmth, protection, and executive prestige.': 'ऊष्मा, सुरक्षा और कार्यकारी प्रतिष्ठा लाता है।',
+      'Too passive for intense Martian energy.': 'तीव्र मंगल ऊर्जा के लिए अत्यधिक निष्क्रिय है।',
+      'Brings auspicious fortune, expansion, and long-distance journey luck.': 'शुभ भाग्य, विस्तार और लंबी दूरी की यात्रा का सौभाग्य लाता है।',
+      'Maintains pure energy during highway drives.': 'राजमार्ग यात्राओं के दौरान शुद्ध ऊर्जा बनाए रखता है।',
+      'Dampens adventurous Sagittarian spirit.': 'साहसी धनु भावना को दबा सकता है।',
+      'Projects supreme authority, structural strength, and high longevity.': 'सर्वोच्च अधिकार, संरचनात्मक शक्ति और दीर्घायु प्रदर्शित करता है।',
+      'Adds refined balance to heavy Saturnian presence.': 'भारी शनि उपस्थिति में परिष्कृत संतुलन जोड़ता है।',
+      'May create friction with disciplined Saturn energy.': 'अनुशासित शनि ऊर्जा के साथ टकराव उत्पन्न कर सकता है।',
+      'Emphasizes futuristic technology, EV innovation, and bold style.': 'भविष्यवादी प्रौद्योगिकी, EV नवाचार और साहसी शैली पर जोर देता है।',
+      'Keeps vehicle cabin cool and serene.': 'वाहन केबिन को ठंडा और शांत रखता है।',
+      'May clash with subtle electric tones.': 'सूक्ष्म इलेक्ट्रिक टोन के साथ टकराव हो सकता है।',
+      'Surrounds vehicle with divine grace, peace, and prosperity.': 'वाहन को दिव्य कृपा, शांति और समृद्धि से घेरता है।',
+      'Enhances tranquil driving and intuitive safety.': 'शांत ड्राइविंग और सहज सुरक्षा को बढ़ाता है।',
+      'May absorb heavy external road vibrations.': 'भारी बाहरी सड़क कंपन अवशोषित कर सकता है।',
+      'May diminish royal solar shine.': 'शाही सौर चमक को कम कर सकता है।',
+
+      // Vahan Colour Rationale Sentences (per rashi)
+      'Aries is ruled by Mars. Warm metallic shades enhance vital energy while white/silver maintains serene driving focus.': 'मेष राशि मंगल ग्रह द्वारा शासित है। गर्म धात्विक रंग महत्वपूर्ण ऊर्जा बढ़ाते हैं जबकि सफेद/चांदी शांत ड्राइविंग फोकस बनाए रखता है।',
+      'Taurus is ruled by Venus. Light metallic and emerald shades enhance luxury comfort, aesthetic harmony, and resale value.': 'वृषभ राशि शुक्र ग्रह द्वारा शासित है। हल्के धात्विक और पन्ना रंग लग्जरी आराम, सौंदर्य सामंजस्य और पुनर्विक्रय मूल्य बढ़ाते हैं।',
+      'Gemini is ruled by Mercury. Green and silver tones boost mental alertness, smooth navigation, and communication flow.': 'मिथुन राशि बुध ग्रह द्वारा शासित है। हरे और चांदी के रंग मानसिक सतर्कता, सुचारु नेविगेशन और संचार प्रवाह बढ़ाते हैं।',
+      'Cancer is ruled by the Moon. White and silver shades amplify intuitive safety and peaceful commutes.': 'कर्क राशि चंद्रमा द्वारा शासित है। सफेद और चांदी के रंग सहज सुरक्षा और शांतिपूर्ण यात्रा को बढ़ाते हैं।',
+      'Leo is ruled by the Sun. Gold, bronze, and radiant silver reflect leadership, prestige, and prosperity.': 'सिंह राशि सूर्य द्वारा शासित है। गोल्ड, ब्रॉन्ज़ और तेजस्वी सिल्वर नेतृत्व, प्रतिष्ठा और समृद्धि को दर्शाते हैं।',
+      'Virgo is ruled by Mercury. Navy blue and silver encourage analytical precision and flawless vehicle upkeep.': 'कन्या राशि बुध ग्रह द्वारा शासित है। नेवी ब्लू और सिल्वर विश्लेषणात्मक सटीकता और निर्दोष वाहन रखरखाव को प्रोत्साहित करते हैं।',
+      'Libra is ruled by Venus. White, champagne, and silver tones promote perfect equilibrium and aesthetic delight.': 'तुला राशि शुक्र ग्रह द्वारा शासित है। सफेद, शैम्पेन और सिल्वर रंग पूर्ण संतुलन और सौंदर्य आनंद को बढ़ावा देते हैं।',
+      'Scorpio is ruled by Mars. Deep navy blue and bronze shades reflect strength, determination, and safety.': 'वृश्चिक राशि मंगल ग्रह द्वारा शासित है। गहरे नेवी ब्लू और ब्रॉन्ज़ रंग शक्ति, दृढ़ता और सुरक्षा को दर्शाते हैं।',
+      'Sagittarius is ruled by Jupiter. Gold, bronze, and bright silver amplify optimistic energy and travel luck.': 'धनु राशि गुरु ग्रह द्वारा शासित है। गोल्ड, ब्रॉन्ज़ और चमकीले सिल्वर आशावादी ऊर्जा और यात्रा सौभाग्य को बढ़ाते हैं।',
+      'Capricorn is ruled by Saturn. Midnight navy, metallic blue, and silver foster durability, safety, and long lifespan.': 'मकर राशि शनि ग्रह द्वारा शासित है। मिडनाइट नेवी, मेटैलिक ब्लू और सिल्वर टिकाऊपन, सुरक्षा और दीर्घ आयुष्य को बढ़ावा देते हैं।',
+      'Aquarius is ruled by Saturn and Rahu. Metallic blue, navy, and silver support cutting-edge technology and smooth mobility.': 'कुंभ राशि शनि और राहु द्वारा शासित है। मेटैलिक ब्लू, नेवी और सिल्वर अत्याधुनिक प्रौद्योगिकी और सुचारु गतिशीलता को समर्थन देते हैं।',
+      'Pisces is ruled by Jupiter. Champagne gold, bronze, and pearl white bring divine harmony and calm travels.': 'मीन राशि गुरु ग्रह द्वारा शासित है। शैम्पेन गोल्ड, ब्रॉन्ज़ और पर्ल व्हाइट दिव्य सामंजस्य और शांत यात्राएं लाते हैं।',
 
       // Vastu & First Drive Direction
       'Primary drive direction to East towards temple or sacred venue': 'प्रथम यात्रा पूर्व दिशा की ओर किसी मंदिर या पवित्र स्थान हेतु करें',
@@ -316,7 +436,33 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       return 'अस्वीकरण: एस्ट्रोलाइव शुभ द्वारा प्रदान किया गया समस्त मार्गदर्शन शुद्ध रूप से पारंपरिक भारतीय ज्योतिषीय सिद्धांतों पर आधारित है। यह सलाह चिकित्सकीय, वित्तीय या निवेश गारंटी का विकल्प नहीं है।';
     }
 
+    if (val.startsWith('Moon transit in ') && val.includes('brings favorable road mobility and safety.')) {
+      const match = val.match(/Moon transit in (.+) brings favorable road mobility and safety\./);
+      if (match) {
+        const rashiTr = wordMappings[match[1]] || match[1];
+        return `${rashiTr} राशि में चंद्रमा का गोचर यात्रा सुरक्षा और सड़क गतिशीलता के लिए शुभ है।`;
+      }
+    }
+
+    if (val.startsWith('Drive initial 108 meters facing ')) {
+      const rest = val.replace('Drive initial 108 meters facing ', '');
+      // Extract direction and the rest of the sentence
+      const match = rest.match(/^(.+?)\s+(?:towards?|to|for)\s+(.+)\.?$/i);
+      if (match) {
+        const dirRaw = match[1].trim();
+        const purposeRaw = match[2].trim();
+        const dirTr = wordMappings[dirRaw] || wordMappings[dirRaw.toLowerCase()] || dirRaw;
+        return `${dirTr} दिशा की ओर 108 मीटर वाहन चलाएं — ${purposeRaw.replace(/\.$/, '')} के लिए।`;
+      }
+      // Simpler fallback: just translate direction
+      const dirWords = rest.split(' ');
+      const dirRaw = dirWords.slice(0, 2).join(' ');
+      const dirTr = wordMappings[dirRaw] || wordMappings[dirRaw.toLowerCase()] || dirWords[0];
+      return `${dirTr} दिशा की ओर 108 मीटर वाहन चलाएं।`;
+    }
+
     // 4. Fallback Word-by-Word Replacement
+
     let result = val;
     Object.keys(wordMappings).forEach((key) => {
       if (result.includes(key)) {
