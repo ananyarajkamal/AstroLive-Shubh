@@ -130,10 +130,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Bright Flame Red': 'ब्राइट फ्लेम रेड',
       'Bright Yellow / Amber': 'ब्राइट यलो / एम्बर',
 
-      // Colors
+      // Colors & Metals
       'White': 'सफेद', 'Silver': 'सिल्वर', 'Black': 'काला', 'Grey': 'ग्रे', 'Gray': 'ग्रे',
       'Red': 'लाल', 'Blue': 'नीला', 'Navy Blue': 'नेवी ब्लू', 'Green': 'हरा',
-      'Yellow': 'पीला', 'Gold': 'गोल्ड', 'Brown': 'भूरा', 'Beige': 'बेज',
+      'Yellow': 'पीला', 'Gold': 'स्वर्ण', 'Brown': 'भूरा', 'Beige': 'बेज',
+      'Gift': 'उपहार', 'Purchase': 'क्रय', 'Acquisition': 'क्रय', 'Guidance': 'मार्गदर्शन',
 
       // Vahan Direction Vastu Symbols
       'Purva Vastu Alignment (Sun Rule)': 'पूर्वी वास्तु संरेखण (सूर्य नियम)',
@@ -182,6 +183,86 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     // 2. Exact Sentence & Phrase Mappings
     const exactPhrases: Record<string, string> = {
+      // Swarna Guidance Types & Purposes (exact, upper, title, snake_case)
+      'Gold Purchase': 'स्वर्ण क्रय',
+      'GOLD PURCHASE': 'स्वर्ण क्रय',
+      'gold_purchase': 'स्वर्ण क्रय',
+      'Gold Gift': 'स्वर्ण उपहार क्रय',
+      'GOLD GIFT': 'स्वर्ण उपहार क्रय',
+      'gold_gift': 'स्वर्ण उपहार क्रय',
+      'Gemstone Guidance': 'रत्न धारण एवं परामर्श',
+      'GEMSTONE GUIDANCE': 'रत्न धारण एवं परामर्श',
+      'gemstone_guidance': 'रत्न धारण एवं परामर्श',
+      'Personal': 'व्यक्तिगत क्रय',
+      'PERSONAL': 'व्यक्तिगत क्रय',
+      'personal': 'व्यक्तिगत क्रय',
+      'Gift': 'उपहार क्रय',
+      'GIFT': 'उपहार क्रय',
+      'gift': 'उपहार क्रय',
+      'Auspicious': 'शुभ / मांगलिक क्रय',
+      'AUSPICIOUS': 'शुभ / मांगलिक क्रय',
+      'auspicious': 'शुभ / मांगलिक क्रय',
+      'Personal Jewellery': 'व्यक्तिगत आभूषण क्रय',
+      'Marriage / Gift': 'विवाह / उपहार हेतु क्रय',
+      'Investment / Bullion': 'निवेश / बुलियन (सोना)',
+
+      // Swarna Gemstones
+      'Ruby (Manik)': 'माणिक्य (रुबी)',
+      'Ruby': 'माणिक्य',
+      'Pearl (Moti)': 'मोती (पर्ल)',
+      'Pearl': 'मोती',
+      'Red Coral (Moonga)': 'मूंगा (रेड कोरल)',
+      'Red Coral': 'मूंगा',
+      'Emerald (Panna)': 'पन्ना (एमरल्ड)',
+      'Emerald': 'पन्ना',
+      'Yellow Sapphire (Pukhraj)': 'पुखराज (येलो नीलम)',
+      'Yellow Sapphire': 'पुखराज',
+      'Diamond (Heera)': 'हीरा (डायमंड)',
+      'Diamond': 'हीरा',
+      'Blue Sapphire (Neelam)': 'नीलम (ब्लू नीलम)',
+      'Blue Sapphire': 'नीलम',
+      'Hessonite (Gomed)': 'गोमेद (हेसोनाइट)',
+      'Hessonite': 'गोमेद',
+      'Cat Eye (Lehsuniya)': 'लहसुनिया (कैट्स आई)',
+      'Cat Eye': 'लहसुनिया',
+
+      // Griha Property Types & Activities
+      'Home / Villa': 'घर / विला',
+      'Plot / Land': 'भूखंड / भूमि',
+      'Apartment / Flat': 'अपार्टमेंट / फ्लैट',
+      'Commercial Office': 'व्यावसायिक कार्यालय',
+      'Bhoomi Pujan Foundation Laying': 'भूमि पूजन एवं नीव निर्माण',
+      'Bhoomi Pujan': 'भूमि पूजन',
+      'Griha Pravesh Housewarming': 'गृह प्रवेश एवं शांति पूजन',
+      'Griha Pravesh': 'गृह प्रवेश',
+      'Property Registration & Purchase': 'संपत्ति पंजीकरण एवं क्रय',
+      'Key Handover & Property Entry': 'चाबी हस्तांतरण एवं गृह प्रवेश',
+      'Key Handover': 'चाबी हस्तांतरण',
+      'Pillar & Foundation Work': 'स्तंभ एवं नीव निर्माण कार्य',
+      'Pillar & Foundation': 'स्तंभ एवं नीव निर्माण',
+
+      // Vyapar Business Types & Milestones
+      'Retail Shop': 'खुदरा दुकान (रिटेल)',
+      'E-Commerce / Digital': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'Ecommerce / Digital': 'ई-कॉमर्स / डिजिटल व्यापार',
+      'Manufacturing': 'विनिर्माता / उद्योग',
+      'Services / Consulting': 'सेवाएं / परामर्श',
+      'Restaurant / Cafe': 'रेस्टोरेंट / कैफे',
+      'Real Estate / Infra': 'रियल एस्टेट / इंफ्रास्ट्रक्चर',
+      'Finance / Tech': 'वित्त / प्रौद्योगिकी',
+      'Company Incorporation & Legal Registration': 'कंपनी निगमन एवं कानूनी पंजीकरण',
+      'Business Grand Launch': 'व्यापारिक भव्य शुभारंभ',
+      'Shop & Showroom Opening': 'दुकान एवं शोरूम का उद्घाटन',
+      'New Office Opening & Puja': 'नए कार्यालय का उद्घाटन एवं पूजा',
+      'Commercial Ribbon Cutting Ceremony': 'व्यावसायिक फीता कटाई समारोह',
+      'Key Product Launch': 'प्रमुख उत्पाद का शुभारंभ',
+      'Incorporation': 'कंपनी निगमन',
+      'Launch': 'व्यापारिक शुभारंभ',
+      'Shop Opening': 'दुकान उद्घाटन',
+      'Office Opening': 'कार्यालय उद्घाटन',
+      'Ribbon Cutting': 'फीता कटाई समारोह',
+      'Product Launch': 'उत्पाद शुभारंभ',
+
       // Swarna Purpose Titles (from backend PURPOSES dict)
       'Personal Gold & Wealth Purchase': '\u0935\u094d\u092f\u0915\u094d\u0924\u093f\u0917\u0924 \u0938\u094d\u0935\u0930\u094d\u0923 \u090f\u0935\u0902 \u0938\u0902\u092a\u0924\u094d\u0924\u093f \u0915\u094d\u0930\u092f',
       'Auspicious Gold Gift Acquisition': '\u0936\u0941\u092d \u0938\u094d\u0935\u0930\u094d\u0923 \u0909\u092a\u0939\u093e\u0930 \u090f\u0935\u0902 \u092e\u093e\u0902\u0917\u0932\u093f\u0915 \u0915\u094d\u0930\u092f',
@@ -190,6 +271,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Gold Gift Acquisition': '\u0938\u094d\u0935\u0930\u094d\u0923 \u0909\u092a\u0939\u093e\u0930 \u0915\u094d\u0930\u092f',
       'Gemstone Activation & Acquisition': '\u0930\u0924\u094d\u0928 \u0927\u093e\u0930\u0923 \u090f\u0935\u0902 \u092a\u0942\u091c\u0928 \u092e\u0941\u0939\u0942\u0930\u094d\u0924',
       'Gold Acquisition': '\u0938\u094d\u0935\u0930\u094d\u0923 \u0915\u094d\u0930\u092f',
+
 
       // Swarna Gemstone Compatibility Categories (note: 'Highly Compatible' already at line 394)
       'Compatible': 'अनुकूल',
@@ -401,8 +483,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'Moderate': 'सामान्य',
     };
 
-    if (exactPhrases[val.trim()]) {
-      return exactPhrases[val.trim()];
+    const trimmedVal = val.trim();
+    if (!trimmedVal) return '';
+
+    if (exactPhrases[trimmedVal]) {
+      return exactPhrases[trimmedVal];
+    }
+
+    // Normalized exact check (case-insensitive, underscore & space agnostic)
+    const normVal = trimmedVal.replace(/_/g, ' ').replace(/\s+/g, ' ').toLowerCase();
+    for (const [k, v] of Object.entries(exactPhrases)) {
+      if (k.replace(/_/g, ' ').replace(/\s+/g, ' ').toLowerCase() === normVal) {
+        return v;
+      }
     }
 
     // 3. Dynamic Rationale & Recommendation Pattern Matching
