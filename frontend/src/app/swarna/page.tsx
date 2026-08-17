@@ -594,9 +594,13 @@ export default function SwarnaPage() {
 
             {/* Auspicious Shubh Windows */}
             <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 36, marginBottom: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>SHUBH ACQUISITION WINDOWS</p>
-              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 28, color: DARK, fontWeight: 500, marginBottom: 20 }}>
-                Recommended Dates ({report?.inputSummary.startDate} to {report?.inputSummary.endDate})
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'शुभ स्वर्ण क्रय मुहूर्त' : 'SHUBH ACQUISITION WINDOWS'}
+              </p>
+              <h3 style={{ fontFamily: lang === 'hi' ? "'Poppins', 'Hind', sans-serif" : "'Cormorant Garamond', Georgia, serif", fontSize: lang === 'hi' ? 22 : 28, color: DARK, fontWeight: 500, marginBottom: 20 }}>
+                {lang === 'hi'
+                  ? `अनुशंसित तिथियाँ (${report?.inputSummary.startDate} से ${report?.inputSummary.endDate})`
+                  : `Recommended Dates (${report?.inputSummary.startDate} to ${report?.inputSummary.endDate})`}
               </h3>
 
               {report?.shubhWindows && report.shubhWindows.length > 0 ? (
@@ -605,33 +609,41 @@ export default function SwarnaPage() {
                     <div key={idx} style={{ backgroundColor: SECONDARY_BG, borderLeft: `4px solid ${GOLD}`, padding: 20, borderRadius: '0 8px 8px 0' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                         <span style={{ fontSize: 15, fontWeight: 700, color: DARK }}>{win.date} ({win.startTime} - {win.endTime})</span>
-                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>{win.purpose}</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', color: GOLD }}>{translateValue(win.purpose)}</span>
                       </div>
-                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>{win.rationale}</p>
+                      <p style={{ fontSize: 13, color: DARK, margin: 0, lineHeight: 1.5 }}>{translateValue(win.rationale)}</p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p style={{ color: MUTED, fontSize: 14 }}>No suitable window found in the selected date range.</p>
+                <p style={{ color: MUTED, fontSize: 14 }}>
+                  {lang === 'hi' ? 'चयनित तिथि सीमा में कोई उपयुक्त मुहूर्त नहीं मिला।' : 'No suitable window found in the selected date range.'}
+                </p>
               )}
             </div>
 
             {/* Chaldean Item Numerology (if present) */}
             {report?.itemNumerology && (
               <div style={{ backgroundColor: WHITE, border: `1px solid ${STONE}`, borderRadius: 10, padding: 28, marginBottom: 32 }}>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>ITEM CHALDEAN NUMEROLOGY</p>
-                <p style={{ fontSize: 15, fontWeight: 600, color: DARK, marginBottom: 8 }}>
-                  Item Sum: {report.itemNumerology.compoundNumber} &rarr; Destiny Digit {report.itemNumerology.reducedNumber} ({report.itemNumerology.rulingPlanet})
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                  {lang === 'hi' ? 'वस्तु चाल्डियन अंक ज्योतिष' : 'ITEM CHALDEAN NUMEROLOGY'}
                 </p>
-                <p style={{ fontSize: 13, color: MUTED, margin: 0 }}>{report.itemNumerology.analysis}</p>
+                <p style={{ fontSize: 15, fontWeight: 600, color: DARK, marginBottom: 8 }}>
+                  {lang === 'hi'
+                    ? `वस्तु अंकयोग: ${report.itemNumerology.compoundNumber} → भाग्य अंक ${report.itemNumerology.reducedNumber} (${translateValue(report.itemNumerology.rulingPlanet)})`
+                    : `Item Sum: ${report.itemNumerology.compoundNumber} → Destiny Digit ${report.itemNumerology.reducedNumber} (${report.itemNumerology.rulingPlanet})`}
+                </p>
+                <p style={{ fontSize: 13, color: MUTED, margin: 0 }}>{translateValue(report.itemNumerology.analysis)}</p>
               </div>
             )}
 
             {/* Mandatory Disclaimer & Notes */}
             <div style={{ backgroundColor: DARK, color: PRIMARY_BG, borderRadius: 10, padding: 32 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>TRADITIONAL ASTROLOGICAL DISCLAIMER</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: GOLD, marginBottom: 12 }}>
+                {lang === 'hi' ? 'पारंपरिक ज्योतिषीय अस्वीकरण' : 'TRADITIONAL ASTROLOGICAL DISCLAIMER'}
+              </p>
               <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.7, margin: 0 }}>
-                {report?.disclaimer}
+                {translateValue(report?.disclaimer || '')}
               </p>
             </div>
           </div>
