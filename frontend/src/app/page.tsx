@@ -338,7 +338,7 @@ export default function HomePage() {
           <p style={{ color: TEXT_MUTED, fontSize: 16, lineHeight: 1.75, maxWidth: 680, margin: '0 auto 36px' }}>
             {lang === 'hi'
               ? 'AstroLive Shubh हर गणना के पीछे वास्तविक खगोलीय डेटा और चालदेयन अंकशास्त्र का उपयोग करता है। हम आपके जीवन के महत्वपूर्ण क्षणों के लिए सबसे शुभ समय की पहचान करते हैं।'
-              : 'Every recommendation on AstroLive Shubh is backed by real Swiss Ephemeris planetary data and Chaldean numerology — not guesswork. We identify the most auspicious windows for the moments that matter most in your life.'}
+              : 'Every recommendation on AstroLive Shubh is backed by real Swiss Ephemeris planetary data and Chaldean numerology, not guesswork. We identify the most auspicious windows for the moments that matter most in your life.'}
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(24px, 4vw, 48px)', flexWrap: 'wrap' }}>
             {[
