@@ -67,16 +67,18 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content Container */}
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: 1540, margin: '0 auto', padding: '96px 48px 84px', width: '100%' }}>
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: 1540, margin: '0 auto', padding: 'clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(40px, 6vw, 84px)', width: '100%', boxSizing: 'border-box' }}>
           <div style={{ maxWidth: 840 }}>
             <h1 style={{
               fontFamily: titleFont,
-              fontSize: lang === 'hi' ? 52 : 68,
+              fontSize: lang === 'hi' ? 'clamp(28px, 6vw, 52px)' : 'clamp(32px, 7.5vw, 68px)',
               color: IVORY_WARM,
               fontWeight: lang === 'hi' ? 600 : 400,
-              lineHeight: lang === 'hi' ? 1.3 : 1.08,
+              lineHeight: lang === 'hi' ? 1.25 : 1.08,
               marginBottom: 24,
               letterSpacing: lang === 'hi' ? '0em' : '-0.02em',
+              wordBreak: 'break-word',
+              overflowWrap: 'break-word',
             }}>
               {t.hero.title}
             </h1>
@@ -143,10 +145,10 @@ export default function HomePage() {
       </section>
 
       {/* ═══ 2. BRAND POSITIONING STATEMENT ═════════════════════════════ */}
-      <section style={{ backgroundColor: IVORY_WARM, padding: '84px 48px', borderBottom: `1px solid ${BORDER_STONE}`, textAlign: 'center', color: TEXT_DARK }}>
+      <section style={{ backgroundColor: IVORY_WARM, padding: 'clamp(48px, 8vw, 84px) clamp(16px, 4vw, 48px)', borderBottom: `1px solid ${BORDER_STONE}`, textAlign: 'center', color: TEXT_DARK }}>
         <div style={{ maxWidth: 960, margin: '0 auto' }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', color: GOLD_MUTED, marginBottom: 14 }}>{t.positioning.tagline}</p>
-          <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 36 : 44, color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400, lineHeight: 1.25, marginBottom: 16 }}>
+          <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 'clamp(24px, 5vw, 36px)' : 'clamp(28px, 5vw, 44px)', color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400, lineHeight: 1.25, marginBottom: 16, wordBreak: 'break-word' }}>
             {t.positioning.title}
           </h2>
           <p style={{ color: TEXT_MUTED, fontSize: 16, lineHeight: 1.75, maxWidth: 760, margin: '0 auto' }}>
@@ -156,11 +158,11 @@ export default function HomePage() {
       </section>
 
       {/* ═══ 3. THE ASTROLIVE SHUBH COLLECTION ═══════════════════════════ */}
-      <section id="collection" style={{ backgroundColor: SURFACE_CARD, borderBottom: `1px solid ${BORDER_STONE}`, padding: '96px 48px', color: TEXT_DARK }}>
+      <section id="collection" style={{ backgroundColor: SURFACE_CARD, borderBottom: `1px solid ${BORDER_STONE}`, padding: 'clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px)', color: TEXT_DARK }}>
         <div style={{ maxWidth: 1540, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: GOLD_MUTED, marginBottom: 8 }}>{t.collection.tagline}</p>
-            <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 36 : 44, color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400 }}>
+            <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 'clamp(24px, 5vw, 36px)' : 'clamp(28px, 5vw, 44px)', color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400, wordBreak: 'break-word' }}>
               {t.collection.title}
             </h2>
             <p style={{ color: TEXT_MUTED, fontSize: 16, marginTop: 8 }}>

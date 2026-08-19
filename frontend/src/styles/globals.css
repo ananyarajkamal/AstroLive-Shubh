@@ -16,14 +16,21 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; max-width: 100vw; overflow-x: hidden; }
 body {
   font-family: 'Inter', 'Poppins', -apple-system, sans-serif;
   background-color: var(--navy-cosmic);
   color: var(--ivory-warm);
   -webkit-font-smoothing: antialiased;
+  max-width: 100vw;
   overflow-x: hidden;
 }
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 
 /* Modern Devanagari Typography Utilities */
 .font-hindi-title {
