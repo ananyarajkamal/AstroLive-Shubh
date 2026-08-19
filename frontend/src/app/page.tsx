@@ -118,28 +118,8 @@ export default function HomePage() {
               >
                 {t.hero.exploreBtn}
               </a>
-              <Link
-                href="/vahan/calculate"
-                style={{
-                  border: `1px solid ${GOLD_ANTIQUE}`,
-                  color: IVORY_WARM,
-                  backgroundColor: 'transparent',
-                  fontFamily: buttonFont,
-                  fontSize: lang === 'hi' ? 13 : 11,
-                  fontWeight: 700,
-                  letterSpacing: lang === 'hi' ? '0.04em' : '0.12em',
-                  padding: lang === 'hi' ? '16px 36px' : '18px 40px',
-                  borderRadius: 4,
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {t.hero.startBtn}
-              </Link>
             </div>
+
           </div>
         </div>
       </section>
