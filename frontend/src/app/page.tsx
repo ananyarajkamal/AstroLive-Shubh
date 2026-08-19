@@ -326,30 +326,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ 6. DIGITAL PATRA SECTION ═══════════════════════════════════ */}
-      <section style={{ backgroundColor: IVORY_WARM, padding: '96px 48px', textAlign: 'center', borderTop: `1px solid ${BORDER_STONE}`, color: TEXT_DARK }}>
-        <div className="patra-sweep-container" style={{ maxWidth: 900, margin: '0 auto', backgroundColor: SURFACE_CARD, border: `1px solid ${BORDER_STONE}`, borderRadius: 12, padding: '56px 40px' }}>
-          {/* Delicate Celestial Corner Ornaments */}
-          <svg width={36} height={36} viewBox="0 0 36 36" fill="none" style={{ position: 'absolute', top: 16, left: 16 }}>
-            <path d="M 0,18 L 18,18 L 18,0" stroke={GOLD_MUTED} strokeWidth={1.2} />
-          </svg>
-          <svg width={36} height={36} viewBox="0 0 36 36" fill="none" style={{ position: 'absolute', top: 16, right: 16 }}>
-            <path d="M 36,18 L 18,18 L 18,0" stroke={GOLD_MUTED} strokeWidth={1.2} />
-          </svg>
-
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: GOLD_MUTED, marginBottom: 8 }}>{t.patraSection.tagline}</p>
-          <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 36 : 44, color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400, marginBottom: 16 }}>
-            {t.patraSection.title}
+      {/* ═══ 6. OUR PROMISE SECTION ═══════════════════════════════════ */}
+      <section style={{ backgroundColor: IVORY_WARM, padding: 'clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px)', textAlign: 'center', borderTop: `1px solid ${BORDER_STONE}`, color: TEXT_DARK }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', backgroundColor: SURFACE_CARD, border: `1px solid ${BORDER_STONE}`, borderRadius: 12, padding: 'clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px)' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: GOLD_MUTED, marginBottom: 8 }}>
+            {lang === 'hi' ? 'हमारा संकल्प' : 'OUR PROMISE'}
+          </p>
+          <h2 style={{ fontFamily: titleFont, fontSize: lang === 'hi' ? 'clamp(24px, 5vw, 36px)' : 'clamp(28px, 5vw, 44px)', color: TEXT_DARK, fontWeight: lang === 'hi' ? 600 : 400, marginBottom: 16, wordBreak: 'break-word' }}>
+            {lang === 'hi' ? 'विज्ञान और परंपरा का सुंदर संगम' : 'Where Ancient Wisdom Meets Precision'}
           </h2>
           <p style={{ color: TEXT_MUTED, fontSize: 16, lineHeight: 1.75, maxWidth: 680, margin: '0 auto 36px' }}>
-            {t.patraSection.subtitle}
+            {lang === 'hi'
+              ? 'AstroLive Shubh हर गणना के पीछे वास्तविक खगोलीय डेटा और चालदेयन अंकशास्त्र का उपयोग करता है। हम आपके जीवन के महत्वपूर्ण क्षणों के लिए सबसे शुभ समय की पहचान करते हैं।'
+              : 'Every recommendation on AstroLive Shubh is backed by real Swiss Ephemeris planetary data and Chaldean numerology — not guesswork. We identify the most auspicious windows for the moments that matter most in your life.'}
           </p>
-          
-          <Link href="/vahan/calculate" style={{ border: `1px solid ${NAVY_COSMIC}`, color: NAVY_COSMIC, fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', padding: '16px 36px', borderRadius: 4, textDecoration: 'none', display: 'inline-block' }}>
-            {t.patraSection.btn}
-          </Link>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(24px, 4vw, 48px)', flexWrap: 'wrap' }}>
+            {[
+              { icon: '✦', label: lang === 'hi' ? 'स्विस एफेमेरिस' : 'Swiss Ephemeris', sub: lang === 'hi' ? 'वास्तविक ग्रह स्थिति' : 'Real planetary positions' },
+              { icon: '◈', label: lang === 'hi' ? 'चालदेयन अंकशास्त्र' : 'Chaldean Numerology', sub: lang === 'hi' ? 'नाम-आधारित अंक गणना' : 'Name-based number science' },
+              { icon: '❋', label: lang === 'hi' ? '4 जीवन मॉड्यूल' : '4 Life Modules', sub: lang === 'hi' ? 'वाहन, गृह, व्यापार, स्वर्ण' : 'Vahan, Griha, Vyapar, Swarna' },
+            ].map(({ icon, label, sub }) => (
+              <div key={label} style={{ textAlign: 'center', minWidth: 140 }}>
+                <div style={{ fontSize: 22, color: GOLD_MUTED, marginBottom: 8 }}>{icon}</div>
+                <p style={{ fontSize: 13, fontWeight: 700, color: TEXT_DARK, marginBottom: 4 }}>{label}</p>
+                <p style={{ fontSize: 12, color: TEXT_MUTED }}>{sub}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* ═══ 7. FINAL CTA ═════════════════════════════════════════════════ */}
       <section style={{ backgroundColor: NAVY_COSMIC, color: IVORY_WARM, borderTop: `1px solid ${BORDER_GOLD}`, padding: '96px 48px', textAlign: 'center' }}>
