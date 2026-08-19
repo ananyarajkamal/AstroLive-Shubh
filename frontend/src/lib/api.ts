@@ -1,11 +1,11 @@
 import { VahanInputData, Phase3ComputeResponse, Phase2ErrorResponse } from './types';
 
-const rawUrl = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  'https://astrolive-shubh.onrender.com/api/v1'
-).replace(/\/+$/, '');
-
-export const API_BASE_URL = rawUrl.endsWith('/api/v1') ? rawUrl : `${rawUrl}/api/v1`;
+/**
+ * All API calls go through Next.js /api/proxy/* rewrite (defined in next.config.ts).
+ * Vercel forwards them server-side to https://astrolive-shubh.onrender.com/api/v1/*
+ * This eliminates CORS issues and environment variable baking problems entirely.
+ */
+export const API_BASE_URL = '/api/proxy';
 
 export class ApiError extends Error {
   status: number;
@@ -54,7 +54,7 @@ async function fetchWithRetry(
 }
 
 /**
- * Calls FastAPI `/api/v1/vahan/compute` on the live Render backend.
+ * Calls FastAPI /api/v1/vahan/compute via Vercel proxy.
  * Returns structured Lagna, Rashi, Nakshatra, Shubh Window, and Vahan Patra.
  */
 export async function computeVahanRequest(
